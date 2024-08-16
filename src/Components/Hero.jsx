@@ -27,6 +27,7 @@ const Hero = ({ allData, setAllData }) => {
             name="Name"
             value={allData.name}
             onChange={handleChange}
+            placeholder="name"
           />
         </div>
       </div>
@@ -136,18 +137,10 @@ const Hero = ({ allData, setAllData }) => {
           />
 
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="learn"
             value={allData.learn}
-            onChange={handleChange}
-            placeholder="project name"
-          />
-          <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
-            type="text"
-            name="learnlink"
-            value={allData.learnlink}
             onChange={handleChange}
             placeholder="frameworks, courses etc."
           />
@@ -163,20 +156,12 @@ const Hero = ({ allData, setAllData }) => {
           />
 
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="ask"
             value={allData.ask}
             onChange={handleChange}
-            placeholder="project name"
-          />
-          <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
-            type="text"
-            name="asklink"
-            value={allData.asklink}
-            onChange={handleChange}
-            placeholder="project link"
+            placeholder="react, .net, angular "
           />
         </div>
 
