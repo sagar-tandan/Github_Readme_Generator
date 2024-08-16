@@ -31,6 +31,10 @@ const prograamLang = [
     title: "typescript",
   },
   {
+    img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/coffeescript/coffeescript-original-wordmark.svg",
+    title: "coffeescript",
+  },
+  {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg",
     title: "php",
   },
@@ -49,6 +53,30 @@ const prograamLang = [
   {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
     title: "python",
+  },
+  {
+    img: "https://vectorlogo.zone/logos/erlang/erlang-official.svg",
+    title: "erlang",
+  },
+  {
+    img: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Clojure_logo.svg",
+    title: "clojure",
+  },
+  {
+    img: "https://www.vectorlogo.zone/logos/elixir-lang/elixir-lang-icon.svg",
+    title: "elixir",
+  },
+  {
+    img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg",
+    title: "swift",
+  },
+  {
+    img: "https://www.vectorlogo.zone/logos/nim-lang/nim-lang-icon.svg",
+    title: "nim",
+  },
+  {
+    img: "https://www.rust-lang.org/static/images/rust-logo-blk.svg",
+    title: "rust",
   },
 ];
 
@@ -135,7 +163,7 @@ const Skills = () => {
         <h1 className="w-full text-xl">Programming Languages</h1>
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
-        <div className="w-full grid grid-cols-4 mt-10  gap-10">
+        <div className="w-full grid grid-cols-4 mt-10 gap-12">
           {prograamLang.map((skill, index) => (
             <div
               key={index}
