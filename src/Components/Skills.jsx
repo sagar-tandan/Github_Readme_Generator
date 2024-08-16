@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AllContext } from "../Context/context";
+
+const programming = [{}];
 
 const Skills = () => {
   const [search, setSearch] = useState("");
+  const { allData, setAllData } = useContext(AllContext);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
   return (
-    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
+    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-1">
       <div className="title w-full flex justify-between">
         <h1 className="w-full text-2xl font-semibold">Skills</h1>
         <div className="w-[250px] border-2 border-black rounded-md flex items-center pr-2">
@@ -56,6 +60,10 @@ const Skills = () => {
       </div>
 
       {/* Programming language */}
+      <div className="programming w-full flex flex-col">
+        <h1 className="w-full text-xl">Programming Languages</h1>
+        <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
+      </div>
     </div>
   );
 };

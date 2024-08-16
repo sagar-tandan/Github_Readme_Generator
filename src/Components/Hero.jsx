@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AllContext } from "../Context/context.jsx";
 
-const Hero = ({ allData, setAllData }) => {
+const Hero = () => {
+  const { allData, setAllData } = useContext(AllContext);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setAllData((prev) => ({
