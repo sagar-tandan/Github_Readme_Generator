@@ -527,6 +527,23 @@ const Skills = () => {
   const [filteredGame, setFilteredGame] = useState(gameEngine);
   const [filteredOther, setFilteredOther] = useState(other);
 
+  const noResultsFound =
+    filteredAi.length === 0 &&
+    filteredAndroid.length === 0 &&
+    filteredBaas.length === 0 &&
+    filteredBackend.length === 0 &&
+    filteredDb.length === 0 &&
+    filteredDevops.length === 0 &&
+    filteredDv.length === 0 &&
+    filteredFramework.length === 0 &&
+    filteredFrontend.length === 0 &&
+    filteredGame.length === 0 &&
+    filteredLangs.length === 0 &&
+    filteredOther.length === 0 &&
+    filteredSoftware.length === 0 &&
+    filteredStatic.length === 0 &&
+    filteredTest.length === 0;
+
   const handleChange = (e) => {
     const searchValue = e.toLowerCase();
     setSearch(searchValue); // Update search state
@@ -1312,6 +1329,11 @@ const Skills = () => {
               </div>
             ))}
           </div>
+        </div>
+      )}
+      {noResultsFound && (
+        <div className=" w-full flex flex-col mt-10 text-[#636363] justify-center items-center">
+          No Results Found
         </div>
       )}
     </div>
