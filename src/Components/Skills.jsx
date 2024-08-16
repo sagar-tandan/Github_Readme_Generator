@@ -511,8 +511,78 @@ const Skills = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const { allData, setAllData } = useContext(AllContext);
 
+  const [filteredLangs, setFilteredLangs] = useState(prograamLang);
+  const [filteredFrontend, setFilteredFrontend] = useState(frontend);
+  const [filteredBackend, setFilteredBackend] = useState(backend);
+  const [filteredAndroid, setFilteredAndroid] = useState(android);
+  const [filteredAi, setFilteredAi] = useState(ai);
+  const [filteredDb, setFilteredDb] = useState(db);
+  const [filteredDv, setFilteredDv] = useState(dataVis);
+  const [filteredDevops, setFilteredDevops] = useState(devops);
+  const [filteredBaas, setFilteredBaas] = useState(baas);
+  const [filteredFramework, setFilteredFramework] = useState(framework);
+  const [filteredTest, setFilteredTest] = useState(testing);
+  const [filteredSoftware, setFilteredSoftware] = useState(software);
+  const [filteredStatic, setFilteredStatic] = useState(staticSite);
+  const [filteredGame, setFilteredGame] = useState(gameEngine);
+  const [filteredOther, setFilteredOther] = useState(other);
+
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    const searchValue = e.target.value.toLowerCase();
+    setSearch(searchValue); // Update search state
+
+    // Filter each array based on search input
+    setFilteredLangs(
+      prograamLang.filter((item) =>
+        item.title.toLowerCase().includes(searchValue)
+      )
+    );
+    setFilteredFrontend(
+      frontend.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredBackend(
+      backend.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredAndroid(
+      android.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredAi(
+      ai.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredDb(
+      db.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredDv(
+      dataVis.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredDevops(
+      devops.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredBaas(
+      baas.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredFramework(
+      framework.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredTest(
+      testing.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredSoftware(
+      software.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
+    setFilteredStatic(
+      staticSite.filter((item) =>
+        item.title.toLowerCase().includes(searchValue)
+      )
+    );
+    setFilteredGame(
+      gameEngine.filter((item) =>
+        item.title.toLowerCase().includes(searchValue)
+      )
+    );
+    setFilteredOther(
+      other.filter((item) => item.title.toLowerCase().includes(searchValue))
+    );
   };
 
   const handleClick = (skill) => {
@@ -583,137 +653,144 @@ const Skills = () => {
         </div>
       </div>
       {/* Programming language */}
-      <div className="programming w-full flex flex-col">
-        <h1 className="w-full text-xl">Programming Languages</h1>
-        <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
+      {filteredLangs.length > 0 && (
+        <div className="programming w-full flex flex-col">
+          <h1 className="w-full text-xl">Programming Languages</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
-        <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {prograamLang.map((skill, index) => (
-            <div
-              key={index}
-              className="w-full flex gap-5 items-center oneelement"
-            >
+          <div className="w-full grid grid-cols-4 mt-10 gap-12">
+            {filteredLangs.map((skill, index) => (
               <div
-                onClick={() => handleClick(skill.title)}
-                className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
               >
                 <div
-                  className={`w-full ${
-                    selectedSkills.includes(skill.title)
-                      ? "bg-purple-600 rounded-sm"
-                      : "bg-white"
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
                   }`}
-                ></div>
+                >
+                  {skill.title}
+                </h1>
               </div>
-              <img
-                onClick={() => handleClick(skill.title)}
-                onMouseEnter={() => setShowText(skill.title)}
-                onMouseLeave={() => setShowText("")}
-                className="w-10 h-10"
-                src={skill.img}
-                alt={skill.title}
-              />
-              <h1
-                className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
-                  showText === skill.title ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {skill.title}
-              </h1>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="programming w-full flex flex-col mt-10">
-        <h1 className="w-full text-xl">Frontend Development</h1>
-        <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
+      )}
+      {filteredFrontend.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-xl">Frontend Development</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
-        <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {frontend.map((skill, index) => (
-            <div
-              key={index}
-              className="w-full flex gap-5 items-center oneelement"
-            >
+          <div className="w-full grid grid-cols-4 mt-10 gap-12">
+            {filteredFrontend.map((skill, index) => (
               <div
-                onClick={() => handleClick(skill.title)}
-                className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
               >
                 <div
-                  className={`w-full ${
-                    selectedSkills.includes(skill.title)
-                      ? "bg-purple-600 rounded-sm"
-                      : "bg-white"
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
                   }`}
-                ></div>
+                >
+                  {skill.title}
+                </h1>
               </div>
-              <img
-                onClick={() => handleClick(skill.title)}
-                onMouseEnter={() => setShowText(skill.title)}
-                onMouseLeave={() => setShowText("")}
-                className="w-10 h-10"
-                src={skill.img}
-                alt={skill.title}
-              />
-              <h1
-                className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
-                  showText === skill.title ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {skill.title}
-              </h1>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       {/* Backend Development */}
-      <div className="programming w-full flex flex-col mt-10">
-        <h1 className="w-full text-xl">Backend Development</h1>
-        <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
+      {filteredBackend.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-xl">Backend Development</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
-        <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {backend.map((skill, index) => (
-            <div
-              key={index}
-              className="w-full flex gap-5 items-center oneelement"
-            >
+          <div className="w-full grid grid-cols-4 mt-10 gap-12">
+            {filteredBackend.map((skill, index) => (
               <div
-                onClick={() => handleClick(skill.title)}
-                className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
               >
                 <div
-                  className={`w-full ${
-                    selectedSkills.includes(skill.title)
-                      ? "bg-purple-600 rounded-sm"
-                      : "bg-white"
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
                   }`}
-                ></div>
+                >
+                  {skill.title}
+                </h1>
               </div>
-              <img
-                onClick={() => handleClick(skill.title)}
-                onMouseEnter={() => setShowText(skill.title)}
-                onMouseLeave={() => setShowText("")}
-                className="w-10 h-10"
-                src={skill.img}
-                alt={skill.title}
-              />
-              <h1
-                className={`px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
-                  showText === skill.title ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {skill.title}
-              </h1>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       {/* Mobile App Development */}
+      
       <div className="programming w-full flex flex-col mt-10">
         <h1 className="w-full text-xl">Mobile App Development</h1>
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {android.map((skill, index) => (
+          {filteredAndroid.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -755,7 +832,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {ai.map((skill, index) => (
+          {filteredAi.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -797,7 +874,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {db.map((skill, index) => (
+          {filteredDb.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -839,7 +916,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {software.map((skill, index) => (
+          {filteredSoftware.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -881,7 +958,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {dataVis.map((skill, index) => (
+          {filteredDv.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -923,7 +1000,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {devops.map((skill, index) => (
+          {filteredDevops.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -965,7 +1042,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {baas.map((skill, index) => (
+          {filteredBaas.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -1007,7 +1084,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {framework.map((skill, index) => (
+          {filteredFramework.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -1050,7 +1127,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {testing.map((skill, index) => (
+          {filteredTest.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -1093,7 +1170,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {staticSite.map((skill, index) => (
+          {filteredStatic.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -1136,7 +1213,7 @@ const Skills = () => {
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {gameEngine.map((skill, index) => (
+          {filteredGame.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
@@ -1174,11 +1251,11 @@ const Skills = () => {
       </div>
       {/* others */}
       <div className="programming w-full flex flex-col mt-10">
-        <h1 className="w-full text-xl">Others</h1>
+        <h1 className="w-full text-xl">Other</h1>
         <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
 
         <div className="w-full grid grid-cols-4 mt-10 gap-12">
-          {other.map((skill, index) => (
+          {filteredOther.map((skill, index) => (
             <div
               key={index}
               className="w-full flex gap-5 items-center oneelement"
