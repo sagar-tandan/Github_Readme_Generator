@@ -31,6 +31,18 @@ const ContextProvider = ({ children }) => {
     funtitle: "⚡ Fun fact",
     fun: "",
     programming: [],
+    facebook: "",
+    github: "",
+    linkedin: "",
+    insta: "",
+    GFG: "",
+    medium: "",
+    twitter: "",
+    youtube: "",
+    leetcode: "",
+    hackerrank: "",
+    dribble: "",
+    kaggle: "",
   });
 
   console.log(allData);
