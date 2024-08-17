@@ -27,7 +27,7 @@ const DisplayTrophy = () => {
   };
 
   return (
-    <div className="mt-8 w-full flex flex-col">
+    <div className="mt-10 w-full flex flex-col">
       <div className="w-full flex gap-3">
         <div
           onClick={() => handleClick()}
@@ -42,7 +42,7 @@ const DisplayTrophy = () => {
         <span className=" text-xl">Github Trophies</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex gap-3 mt-3 justify-between">
+      <div className="w-full flex gap-3 justify-between">
         <div className="w-[350px] flex gap-3 mt-5 items-center">
           <label className="text-lg">Theme : </label>
           <select

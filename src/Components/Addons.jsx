@@ -1,6 +1,7 @@
 import React from "react";
 import DisplayVisitor from "./Addons/DisplayVisitor";
 import DisplayTrophy from "./Addons/DisplayTrophy";
+import RandomQuote from "./Addons/RandomQuote";
 
 const Addons = () => {
   return (
@@ -12,6 +13,7 @@ const Addons = () => {
         </p>
         <DisplayVisitor />
         <DisplayTrophy />
+        <RandomQuote/>
       </div>
     </div>
   );

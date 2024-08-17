@@ -58,7 +58,10 @@ const ContextProvider = ({ children }) => {
     trophyBorder: true,
     trophyBackground: true,
 
-    
+    //random quote
+    displayQuote: false,
+    quoteTheme: "",
+
     displayTopRepo: false,
   });
 
