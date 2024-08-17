@@ -46,11 +46,19 @@ const ContextProvider = ({ children }) => {
     displayPstats: false,
     displayTopSkill: false,
     displayStreakSkill: false,
+    //visitorBadge
     displayVisiter: false,
     visitorLabel: "Profile Views",
-    visitorBadgeColor: '0',
-    visitorBadgeIcon: '0',
-    displaytropy: false,
+    visitorBadgeColor: "0",
+    visitorBadgeIcon: "0",
+
+    //Trophy
+    displaytrophy: false,
+    trophyTheme: "radical",
+    trophyBorder: true,
+    trophyBackground: true,
+
+    
     displayTopRepo: false,
   });
 
