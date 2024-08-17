@@ -72,7 +72,9 @@ const DisplayVisitor = () => {
               "pink",
               "neutral",
             ].map((color, index) => (
-              <option value={index}>{color}</option>
+              <option className="bg-indigo-50" value={index}>
+                {color}
+              </option>
             ))}
           </select>
         </div>

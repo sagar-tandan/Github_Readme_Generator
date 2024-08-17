@@ -62,7 +62,7 @@ const DisplayTrophy = () => {
               "monokai",
               "algolia",
             ].map((color, index) => (
-              <option value={color}>{color}</option>
+              <option className="bg-indigo-50" value={color}>{color}</option>
             ))}
           </select>
         </div>
@@ -87,7 +87,7 @@ const DisplayTrophy = () => {
         </div>
       </div>
 
-      <div className="flex gap-3 mt-5 w-full items-center">
+      <div className="flex gap-3 mt-5 w-full items-center p-2">
         {allData.github.trim() === "" ? (
           <p className="text-red-500">Invalid github username</p>
         ) : (

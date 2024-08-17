@@ -2,6 +2,7 @@ import React from "react";
 import DisplayVisitor from "./Addons/DisplayVisitor";
 import DisplayTrophy from "./Addons/DisplayTrophy";
 import RandomQuote from "./Addons/RandomQuote";
+import DisplayGithubStats from "./Addons/DisplayGithubStats";
 
 const Addons = () => {
   return (
@@ -13,7 +14,8 @@ const Addons = () => {
         </p>
         <DisplayVisitor />
         <DisplayTrophy />
-        <RandomQuote/>
+        <RandomQuote />
+        <DisplayGithubStats />
       </div>
     </div>
   );

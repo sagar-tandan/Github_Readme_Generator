@@ -43,9 +43,17 @@ const ContextProvider = ({ children }) => {
     hackerrank: "",
     dribble: "",
     kaggle: "",
-    displayPstats: false,
-    displayTopSkill: false,
-    displayStreakSkill: false,
+    // displayPstats: false,
+    // displayTopSkill: false,
+    // displayStreakSkill: false,
+
+    //Github Statistics
+    displayStat: false,
+    statTheme: "default",
+    statBorder: true,
+    statLifeTimeCommit: false,
+    statPrivateCommit: false,
+
     //visitorBadge
     displayVisiter: false,
     visitorLabel: "Profile Views",
