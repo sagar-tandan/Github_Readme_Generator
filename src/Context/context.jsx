@@ -47,6 +47,7 @@ const ContextProvider = ({ children }) => {
     displayTopSkill: false,
     displayStreakSkill: false,
     displayVisiter: false,
+    visitorLabel: "Profile Views",
     visitorBadgeColor: '0',
     visitorBadgeIcon: '0',
     displaytropy: false,

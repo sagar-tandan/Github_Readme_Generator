@@ -8,6 +8,11 @@ const DisplayVisitor = () => {
     setAllData((prev) => ({ ...prev, displayVisiter: !prev.displayVisiter }));
   };
 
+  const handleLabelChange = (event) => {
+    const value = event.target.value;
+    setAllData((prev) => ({ ...prev, visitorLabel: value }));
+  };
+
   const handleColorChange = (event) => {
     const value = event.target.value;
     setAllData((prev) => ({ ...prev, visitorBadgeColor: value }));
@@ -33,8 +38,19 @@ const DisplayVisitor = () => {
         <span className=" text-xl">Visitor Count Badge</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex gap-3">
-        <div className="w-[300px] flex gap-3 mt-5">
+      <div className="w-full flex gap-3 mt-3">
+        <div className="w-[300px] mt-5">
+          <input
+            className="w-[200px] outline-none text-lg  border-b-2 border-[#d3d3d3] p-1 "
+            type="text"
+            name="visitorLabel"
+            value={allData.visitorLabel}
+            onChange={(e) => handleLabelChange(e)}
+            placeholder="Add label "
+          />
+        </div>
+
+        <div className="w-[300px] flex gap-3 mt-5 items-center">
           <label className="text-lg">Color : </label>
           <select
             onChange={(e) => handleColorChange(e)}
@@ -61,7 +77,7 @@ const DisplayVisitor = () => {
           </select>
         </div>
 
-        <div className="w-[300px] flex gap-3 mt-5">
+        <div className="w-[300px] flex gap-3 mt-5 items-center">
           <label className="text-lg">Icon :</label>
           <select
             onChange={(e) => handleIconChange(e)}
@@ -85,12 +101,13 @@ const DisplayVisitor = () => {
             ))}
           </select>
         </div>
-        <div className=" flex gap-3 mt-5">
+        <div className="flex gap-3 mt-5 w-[300px]">
           {allData.github.trim() === "" ? (
             <p className="text-red-500">Invalid github username</p>
           ) : (
             <img
-              src={`https://visitcount.itsvg.in/api?id=sagar-tandan&label=Profile%20Views&color=${allData.visitorBadgeColor}&icon=${allData.visitorBadgeIcon}&pretty=true`}
+              className="w-[90%] h-[50px]"
+              src={`https://visitcount.itsvg.in/api?id=sagar-tandan&label=${allData.visitorLabel}&color=${allData.visitorBadgeColor}&icon=${allData.visitorBadgeIcon}&pretty=true`}
             />
           )}
         </div>
