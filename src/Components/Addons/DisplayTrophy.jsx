@@ -98,6 +98,7 @@ const DisplayTrophy = () => {
             }&theme=${
               allData.trophyTheme
             }&no-frame=${!allData.trophyBorder}&no-bg=${!allData.trophyBackground}&margin-w=4`}
+            alt="trophy"
           />
         )}
       </div>

@@ -1,0 +1,5 @@
+/* Custom styles for the HexColorPicker component */
+.custom-color-picker .react-colorful {
+  height: 150px;
+  width: 200px;
+}

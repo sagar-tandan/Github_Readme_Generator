@@ -56,7 +56,7 @@ const theme = [
   "neon",
   "blue_navy",
   "calm_pink",
-  "ambient_gradient"
+  "ambient_gradient",
 ];
 
 const DisplayGithubStats = () => {
@@ -170,6 +170,7 @@ const DisplayGithubStats = () => {
             }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${
               allData.statPrivateCommit
             }&layout=compact`}
+            alt="lang"
           />
           <img
             className="w-full"
@@ -178,6 +179,7 @@ const DisplayGithubStats = () => {
             }&theme=${
               allData.statTheme
             }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${!allData.statPrivateCommit}`}
+            alt="stats"
           />
 
           <img
@@ -185,6 +187,7 @@ const DisplayGithubStats = () => {
             src={`https://github-readme-streak-stats.herokuapp.com/?user=${
               allData.github
             }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}`}
+            alt="streak"
           />
         </div>
       )}

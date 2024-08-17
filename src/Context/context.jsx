@@ -70,6 +70,13 @@ const ContextProvider = ({ children }) => {
     displayQuote: false,
     quoteTheme: "",
 
+    //Contribution Graph
+    displayActivity: false,
+    activityBg: "#000000",
+    activityText: "#ffffff",
+    activityLine: "#00ccf5",
+    activityPoint: "#ffffff",
+
     displayTopRepo: false,
   });
 

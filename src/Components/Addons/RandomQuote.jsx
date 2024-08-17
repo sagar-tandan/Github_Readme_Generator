@@ -60,6 +60,7 @@ const RandomQuote = () => {
         ) : (
           <img
             src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme}`}
+            alt="quote"
           />
         )}
       </div>

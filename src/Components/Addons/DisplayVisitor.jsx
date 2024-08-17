@@ -110,6 +110,7 @@ const DisplayVisitor = () => {
             <img
               className="w-[90%] h-[40px]"
               src={`https://visitcount.itsvg.in/api?id=${allData.github}&label=${allData.visitorLabel}&color=${allData.visitorBadgeColor}&icon=${allData.visitorBadgeIcon}&pretty=true`}
+              alt="badge"
             />
           )}
         </div>
