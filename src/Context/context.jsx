@@ -82,6 +82,10 @@ const ContextProvider = ({ children }) => {
     spotifyCover: true,
     spotifyBg: "#000000",
     spotifyBarColor: "53b14f",
+
+    //support
+    buymeacoffee: "",
+    kofi: "",
   });
 
   console.log(allData);

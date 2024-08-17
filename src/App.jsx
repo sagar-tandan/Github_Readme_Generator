@@ -3,6 +3,7 @@ import Addons from "./Components/Addons";
 import Hero from "./Components/Hero";
 import Skills from "./Components/Skills";
 import Social from "./Components/Social";
+import Support from "./Components/Support";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Skills />
       <Social />
       <Addons />
+      <Support />
     </div>
   );
 }
