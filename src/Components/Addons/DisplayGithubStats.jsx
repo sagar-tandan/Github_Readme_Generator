@@ -160,9 +160,28 @@ const DisplayGithubStats = () => {
           <p className="text-red-500">Invalid github username</p>
         </div>
       ) : (
-        <div className="flex gap-5 mt-5 w-full items-center p-2">
+        <div className="flex gap-5 mt-8 w-full items-center">
           <img
-            className="w-full"
+            // className="w-full"
+            className="w-[550px]"
+            src={`https://github-readme-streak-stats.herokuapp.com/?user=${
+              allData.github
+            }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}`}
+            alt="streak"
+          />
+          <img
+            // className="w-full"
+            className="w-[500px]"
+            src={`https://github-readme-stats.vercel.app/api?username=${
+              allData.github
+            }&theme=${
+              allData.statTheme
+            }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${!allData.statPrivateCommit}`}
+            alt="stats"
+          />
+          <img
+            // className="w-full"
+            className="w-[400px]"
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
               allData.github
             }&theme=${
@@ -171,23 +190,6 @@ const DisplayGithubStats = () => {
               allData.statPrivateCommit
             }&layout=compact`}
             alt="lang"
-          />
-          <img
-            className="w-full"
-            src={`https://github-readme-stats.vercel.app/api?username=${
-              allData.github
-            }&theme=${
-              allData.statTheme
-            }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${!allData.statPrivateCommit}`}
-            alt="stats"
-          />
-
-          <img
-            className="w-full"
-            src={`https://github-readme-streak-stats.herokuapp.com/?user=${
-              allData.github
-            }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}`}
-            alt="streak"
           />
         </div>
       )}
