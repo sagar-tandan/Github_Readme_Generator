@@ -77,7 +77,11 @@ const ContextProvider = ({ children }) => {
     activityLine: "#00ccf5",
     activityPoint: "#ffffff",
 
-    displayTopRepo: false,
+    //spotify
+    displaySpotify: false,
+    spotifyCover: true,
+    spotifyBg: "#000000",
+    spotifyBarColor: "53b14f",
   });
 
   console.log(allData);

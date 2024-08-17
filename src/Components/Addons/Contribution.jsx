@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../../Context/context";
 import { HexColorPicker } from "react-colorful";
-import "./hello.css"; // Import your custom CSS file
+import "./Custom_ColorPicker.css"; // Import your custom CSS file
 
 const Contribution = () => {
   const { allData, setAllData } = useContext(AllContext);

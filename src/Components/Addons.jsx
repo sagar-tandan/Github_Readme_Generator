@@ -1,9 +1,9 @@
 import React from "react";
-import DisplayVisitor from "./Addons/DisplayVisitor";
-import DisplayTrophy from "./Addons/DisplayTrophy";
-import RandomQuote from "./Addons/RandomQuote";
-import DisplayGithubStats from "./Addons/DisplayGithubStats";
-import Contribution from "./Addons/Contribution";
+import DisplayVisitor from "./Addons/DisplayVisitor.jsx";
+import DisplayTrophy from "./Addons/DisplayTrophy.jsx";
+import RandomQuote from "./Addons/RandomQuote.jsx";
+import DisplayGithubStats from "./Addons/DisplayGithubStats.jsx";
+import Contribution from "./Addons/Contribution.jsx";
 
 const Addons = () => {
   return (
