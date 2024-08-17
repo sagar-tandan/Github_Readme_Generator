@@ -43,6 +43,14 @@ const ContextProvider = ({ children }) => {
     hackerrank: "",
     dribble: "",
     kaggle: "",
+    displayPstats: false,
+    displayTopSkill: false,
+    displayStreakSkill: false,
+    displayVisiter: false,
+    visitorBadgeColor: '0',
+    visitorBadgeIcon: '0',
+    displaytropy: false,
+    displayTopRepo: false,
   });
 
   console.log(allData);

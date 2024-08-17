@@ -1,4 +1,5 @@
 import "./App.css";
+import Addons from "./Components/Addons";
 import Hero from "./Components/Hero";
 import Skills from "./Components/Skills";
 import Social from "./Components/Social";
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <Skills />
       <Social />
+      <Addons />
     </div>
   );
 }
