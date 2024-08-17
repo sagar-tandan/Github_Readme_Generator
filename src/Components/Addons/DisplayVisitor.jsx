@@ -101,13 +101,13 @@ const DisplayVisitor = () => {
             ))}
           </select>
         </div>
-        <div className="flex gap-3 mt-5 w-[300px]">
+        <div className="flex gap-3 mt-5 w-[300px] items-center">
           {allData.github.trim() === "" ? (
             <p className="text-red-500">Invalid github username</p>
           ) : (
             <img
-              className="w-[90%] h-[50px]"
-              src={`https://visitcount.itsvg.in/api?id=sagar-tandan&label=${allData.visitorLabel}&color=${allData.visitorBadgeColor}&icon=${allData.visitorBadgeIcon}&pretty=true`}
+              className="w-[90%] h-[40px]"
+              src={`https://visitcount.itsvg.in/api?id=${allData.github}&label=${allData.visitorLabel}&color=${allData.visitorBadgeColor}&icon=${allData.visitorBadgeIcon}&pretty=true`}
             />
           )}
         </div>
