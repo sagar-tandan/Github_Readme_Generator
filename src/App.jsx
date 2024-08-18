@@ -7,6 +7,7 @@ import Skills from "./Components/Skills";
 import Social from "./Components/Social";
 import Support from "./Components/Support";
 import { AllContext } from "./Context/context";
+import Markdown from "./Components/Markdown";
 
 function App() {
   const { allData, setAllData } = useContext(AllContext);
@@ -24,6 +25,7 @@ function App() {
         </div>
       ) : (
         <div className="w-full flex flex-col">
+          <Markdown />
           <GenerateReadme />
         </div>
       )}

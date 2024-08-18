@@ -30,7 +30,11 @@ const ContextProvider = ({ children }) => {
     exp: "",
     funtitle: "⚡ Fun fact",
     fun: "",
+    
+    //skill
     programming: '',
+
+    //contact
     facebook: "",
     github: "",
     linkedin: "",
