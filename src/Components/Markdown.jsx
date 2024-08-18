@@ -212,6 +212,8 @@ const Markdown = () => {
   }`;
   //visitor count badge Completed
 
+  //Github Trophy Started
+
   const githubTrophy = `${
     allData.github.trim() !== "" && allData.displaytrophy
       ? `![](https://github-profile-trophy.vercel.app/?username=${
@@ -221,6 +223,19 @@ const Markdown = () => {
         }&no-frame=${!allData.trophyBorder}&no-bg=${!allData.trophyBackground}&margin-w=4)`
       : ""
   }`;
+
+  //Github Trophy Completed
+
+  //Random Quote started
+  const RandomQuote = `${
+    allData.github.trim() !== "" && allData.displayQuote
+      ? `![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme})`
+      : ""
+  }`;
+  //Random quote Completed
+
+
+  
 
   console.log(
     facebook,
@@ -235,7 +250,8 @@ const Markdown = () => {
     insta,
     gfg,
     profilebadge,
-    githubTrophy
+    githubTrophy,
+    RandomQuote
   );
   return <div>Markdown</div>;
 };

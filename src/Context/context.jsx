@@ -69,7 +69,7 @@ const ContextProvider = ({ children }) => {
 
     //random quote
     displayQuote: false,
-    quoteTheme: "",
+    quoteTheme: "radical",
 
     //Contribution Graph
     displayActivity: false,
