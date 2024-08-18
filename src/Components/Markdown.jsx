@@ -447,6 +447,23 @@ const Markdowns = () => {
               </div>
             </div>
           )}
+
+          {/* Render Trophy Section */}
+          {githubTrophy && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">🏆 GitHub Trophies</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <img
+                className="w-full"
+                src={`https://github-profile-trophy.vercel.app/?username=${
+                  allData.github
+                }&theme=${
+                  allData.trophyTheme
+                }&no-frame=${!allData.trophyBorder}&no-bg=${!allData.trophyBackground}&margin-w=4`}
+                alt="trophy"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
