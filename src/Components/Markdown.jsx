@@ -459,7 +459,7 @@ const Markdowns = () => {
           <div dangerouslySetInnerHTML={{ __html: subtitle }} />
           <hr className="border-[1px]" />
           <img
-            className="w-[200px] mb-2"
+            className="w-[200px]"
             src={convertProfileToUrl(profilebadge)}
             alt=""
           />
@@ -506,7 +506,7 @@ const Markdowns = () => {
             <div className="w-full my-4">
               <h1 className="text-2xl font-semibold ">🌐 Socials</h1>
               <hr className="border-[1px] mt-1 mb-5" />
-              <div className="w-full flex gap-2">
+              <div className="w-full flex gap-2 flex-wrap">
                 {facebook && (
                   <div dangerouslySetInnerHTML={{ __html: fbContent }} />
                 )}
@@ -551,7 +551,7 @@ const Markdowns = () => {
             <div className="w-full my-4">
               <h1 className="text-2xl font-semibold ">💻 Tech Stack</h1>
               <hr className="border-[1px] mt-1 mb-5" />
-              <div className="w-full flex gap-2">
+              <div className="w-full flex gap-2 flex-wrap mt-6">
                 {allData.selectedSkillBadge.map((skill) => (
                   <img src={extractTechBadgeUrl(skill)} alt="tech" />
                 ))}
@@ -565,7 +565,7 @@ const Markdowns = () => {
               <h1 className="text-2xl font-semibold ">📊 Contribution Graph</h1>
               <hr className="border-[1px] mt-1 mb-5" />
               <img
-                className="w-full rounded-md "
+                className="w-full rounded-md mt-8"
                 src={`https://github-readme-activity-graph.vercel.app/graph?username=${
                   allData.github
                 }&bg_color=${allData.activityBg.replace(
@@ -593,9 +593,9 @@ const Markdowns = () => {
                 📈 GitHub Stats & 🔍 Used Languages
               </h1>
               <hr className="border-[1px] mt-1 mb-5" />
-              <div className="flex gap-5 mt-8 w-full items-center">
+              <div className="flex gap-5 mt-8 w-full items-center flex-wrap">
                 <img
-                  className="w-[550px]"
+                  className="w-[500px]"
                   src={`https://github-readme-streak-stats.herokuapp.com/?user=${
                     allData.github
                   }&theme=${
@@ -604,7 +604,7 @@ const Markdowns = () => {
                   alt="streak"
                 />
                 <img
-                  className="w-[500px]"
+                  className="w-[450px]"
                   src={`https://github-readme-stats.vercel.app/api?username=${
                     allData.github
                   }&theme=${
@@ -613,7 +613,7 @@ const Markdowns = () => {
                   alt="stats"
                 />
                 <img
-                  className="w-[400px]"
+                  className="w-[350px]"
                   src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
                     allData.github
                   }&theme=${
@@ -633,7 +633,7 @@ const Markdowns = () => {
               <h1 className="text-2xl font-semibold ">🏆 GitHub Trophies</h1>
               <hr className="border-[1px] mt-1 mb-5" />
               <img
-                className="w-full"
+                className="w-full mt-8"
                 src={`https://github-profile-trophy.vercel.app/?username=${
                   allData.github
                 }&theme=${
