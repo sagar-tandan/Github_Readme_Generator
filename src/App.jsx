@@ -1,5 +1,6 @@
 import "./App.css";
 import Addons from "./Components/Addons";
+import GenerateReadme from "./Components/GenerateReadme";
 import Hero from "./Components/Hero";
 import Skills from "./Components/Skills";
 import Social from "./Components/Social";
@@ -13,6 +14,7 @@ function App() {
       <Social />
       <Addons />
       <Support />
+      <GenerateReadme />
     </div>
   );
 }
