@@ -184,14 +184,17 @@ const Markdown = () => {
   useEffect(() => {
     let newSelectedSkills = [];
     // Iterate over the programming skills
-    allData.programming.forEach((skill) => {
-      // Find the matching skill in allSkill
-      allSkill.forEach((reSkill) => {
-        if (skill === reSkill.title) {
-          newSelectedSkills.push(reSkill.img);
-        }
-      });
-    });
+    {
+      allData.programming !== "" &&
+        allData.programming.forEach((skill) => {
+          // Find the matching skill in allSkill
+          allSkill.forEach((reSkill) => {
+            if (skill === reSkill.title) {
+              newSelectedSkills.push(reSkill.img);
+            }
+          });
+        });
+    }
     setAllData((prev) => ({ ...prev, selectedSkillBadge: newSelectedSkills }));
   }, []);
 
@@ -199,6 +202,19 @@ const Markdown = () => {
 
 
   
+  //Visitor Count Badge started
+  const profilebadge = `${
+    allData.github && allData.displayVisiter
+      ? `![](https://visitcount.itsvg.in/api?id=${
+          allData.github
+        }&label=${encodeURIComponent(allData.visitorLabel)}&color=${
+          allData.visitorBadgeColor
+        }&icon=${allData.visitorBadgeIcon}&pretty=true)`
+      : ""
+  }`;
+  //visitor count badge Completed
+
+
 
   console.log(
     facebook,
@@ -211,7 +227,8 @@ const Markdown = () => {
     kaggle,
     dribble,
     insta,
-    gfg
+    gfg,
+    profilebadge
   );
   return <div>Markdown</div>;
 };
