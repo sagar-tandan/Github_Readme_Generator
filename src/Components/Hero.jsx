@@ -27,7 +27,7 @@ const Hero = () => {
             className="w-[400px] outline-none border-b-2 border-[#d3d3d3] text-xl"
             type="text"
             name="Name"
-            value={allData.name}
+            value={allData.Name}
             onChange={handleChange}
             placeholder="name"
           />

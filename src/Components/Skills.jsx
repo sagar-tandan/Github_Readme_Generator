@@ -506,10 +506,10 @@ const other = [
   },
 ];
 const Skills = () => {
+  const { allData, setAllData } = useContext(AllContext);
   const [search, setSearch] = useState("");
   const [showText, setShowText] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState([]);
-  const { allData, setAllData } = useContext(AllContext);
+  const [selectedSkills, setSelectedSkills] = useState(allData.programming);
 
   const [filteredLangs, setFilteredLangs] = useState(prograamLang);
   const [filteredFrontend, setFilteredFrontend] = useState(frontend);
@@ -617,9 +617,9 @@ const Skills = () => {
   useEffect(() => {
     setAllData((prev) => ({
       ...prev,
-      programming: [selectedSkills],
+      programming: selectedSkills,
     }));
-  }, [selectedSkills]);
+  }, selectedSkills);
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-1">

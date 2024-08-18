@@ -30,7 +30,7 @@ const ContextProvider = ({ children }) => {
     exp: "",
     funtitle: "⚡ Fun fact",
     fun: "",
-    programming: [],
+    programming: '',
     facebook: "",
     github: "",
     linkedin: "",
@@ -43,9 +43,7 @@ const ContextProvider = ({ children }) => {
     hackerrank: "",
     dribble: "",
     kaggle: "",
-    // displayPstats: false,
-    // displayTopSkill: false,
-    // displayStreakSkill: false,
+  
 
     //Github Statistics
     displayStat: false,
