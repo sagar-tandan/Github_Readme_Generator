@@ -505,8 +505,6 @@ const other = [
     title: "linux",
   },
 ];
-
-
 const Skills = () => {
   const { allData, setAllData } = useContext(AllContext);
   const [search, setSearch] = useState("");
@@ -621,7 +619,7 @@ const Skills = () => {
       ...prev,
       programming: selectedSkills,
     }));
-  }, selectedSkills);
+  }, [selectedSkills]);
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-1">

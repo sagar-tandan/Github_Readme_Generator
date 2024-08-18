@@ -30,9 +30,9 @@ const ContextProvider = ({ children }) => {
     exp: "",
     funtitle: "⚡ Fun fact",
     fun: "",
-    
+
     //skill
-    programming: '',
+    programming: "",
 
     //contact
     facebook: "",
@@ -47,7 +47,6 @@ const ContextProvider = ({ children }) => {
     hackerrank: "",
     dribble: "",
     kaggle: "",
-  
 
     //Github Statistics
     displayStat: false,
@@ -91,6 +90,9 @@ const ContextProvider = ({ children }) => {
 
     //output
     displayOutput: false,
+
+    //selectedSkillBadgeLink
+    selectedSkillBadge: "",
   });
 
   console.log(allData);

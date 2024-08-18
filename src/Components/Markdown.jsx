@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../Context/context";
+import SkillsBadges from "./SkillBadge.jsx";
 
 const Markdown = () => {
   const { allData, setAllData } = useContext(AllContext);
+  const [allSkill, setAllSkill] = useState(SkillsBadges);
+  const [selectedSkill, setSelectedSkill] = useState([]);
 
   //Hero Section start here
 
@@ -176,8 +179,25 @@ const Markdown = () => {
 
   //donate section completed
 
-
   //Skill section started
+
+  useEffect(() => {
+    let newSelectedSkills = [];
+    // Iterate over the programming skills
+    allData.programming.forEach((skill) => {
+      // Find the matching skill in allSkill
+      allSkill.forEach((reSkill) => {
+        if (skill === reSkill.title) {
+          newSelectedSkills.push(reSkill.img);
+        }
+      });
+    });
+    setAllData((prev) => ({ ...prev, selectedSkillBadge: newSelectedSkills }));
+  }, []);
+
+  //skill section Completed
+
+
   
 
   console.log(
