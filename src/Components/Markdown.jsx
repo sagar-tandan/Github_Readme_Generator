@@ -308,25 +308,6 @@ const Markdowns = () => {
 
   //Contribution graph Completed
 
-  console.log(
-    facebook,
-    linkedin,
-    leetcode,
-    youtube,
-    hackerrank,
-    twitter,
-    medium,
-    kaggle,
-    dribble,
-    insta,
-    gfg,
-    profilebadge,
-    githubTrophy,
-    RandomQuote,
-    githubStatistics,
-    ContributionGraph
-  );
-
   function convertMarkdownToUrl(markdown) {
     // Match the URL part of the Markdown image syntax
     const urlMatch = markdown.match(/\!\[\]\((.*?)\)/);
@@ -472,6 +453,48 @@ const Markdowns = () => {
                 )}&area=true&hide_border=true`}
                 alt="graph"
               />
+            </div>
+          )}
+
+          {/* Render Github Stattistics */}
+          {githubStatistics && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">🏆 GitHub Trophies</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <div className="flex gap-5 mt-8 w-full items-center">
+                <img
+                  // className="w-full"
+                  className="w-[550px]"
+                  src={`https://github-readme-streak-stats.herokuapp.com/?user=${
+                    allData.github
+                  }&theme=${
+                    allData.statTheme
+                  }&hide_border=${!allData.statBorder}`}
+                  alt="streak"
+                />
+                <img
+                  // className="w-full"
+                  className="w-[500px]"
+                  src={`https://github-readme-stats.vercel.app/api?username=${
+                    allData.github
+                  }&theme=${
+                    allData.statTheme
+                  }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${!allData.statPrivateCommit}`}
+                  alt="stats"
+                />
+                <img
+                  // className="w-full"
+                  className="w-[400px]"
+                  src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
+                    allData.github
+                  }&theme=${
+                    allData.statTheme
+                  }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${
+                    allData.statPrivateCommit
+                  }&layout=compact`}
+                  alt="lang"
+                />
+              </div>
             </div>
           )}
 
