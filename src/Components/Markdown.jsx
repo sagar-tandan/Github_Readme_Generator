@@ -352,8 +352,10 @@ const Markdowns = () => {
   const youtubeContent = convertSocialMarkdownToHtml(youtube);
   const gfgContent = convertSocialMarkdownToHtml(gfg);
 
-  // // Convert Markdown badges to HTML
-  // const htmlBadges = convertSocialMarkdownToHtml(allBadges);
+  function extractTechBadgeUrl(markdown) {
+    const match = markdown.match(/\!\[.*\]\(([^)]+)\)/);
+    return match ? match[1] : null;
+  }
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
@@ -429,6 +431,19 @@ const Markdowns = () => {
                 {gfg && (
                   <div dangerouslySetInnerHTML={{ __html: gfgContent }} />
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Render Skill section */}
+          {allData.selectedSkillBadge.length > 0 && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">💻 Tech Stack</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <div className="w-full flex gap-1">
+                {allData.selectedSkillBadge.map((skill) => (
+                  <img src={extractTechBadgeUrl(skill)} alt="tech" />
+                ))}
               </div>
             </div>
           )}
