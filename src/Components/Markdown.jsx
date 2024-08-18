@@ -235,7 +235,56 @@ const Markdown = () => {
   //Random quote Completed
 
 
-  
+
+  //Github Statistics
+
+  const gitStat = `${
+    allData.github.trim() !== "" && allData.displayStat
+      ? `<img height="120px" src="https://github-readme-stats.vercel.app/api?username=${
+          allData.github
+        }&theme=${
+          allData.statTheme
+        }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${!allData.statPrivateCommit}" alt="${
+          allData.github
+        }'s GitHub Stats" />`
+      : ""
+  }`;
+
+  const topLang = `${
+    allData.github.trim() !== "" && allData.displayStat
+      ? `<img height="120px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=${
+          allData.github
+        }&theme=${
+          allData.statTheme
+        }&hide_border=${!allData.statBorder}&include_all_commits=${!allData.statLifeTimeCommit}&count_private=${
+          allData.statPrivateCommit
+        }&layout=compact" alt="${allData.github}'s Top Languages" />`
+      : ""
+  }`;
+
+  const streak = `${
+    allData.github.trim() !== "" && allData.displayStat
+      ? `<img height="120px" src="https://github-readme-streak-stats.herokuapp.com/?user=${
+          allData.github
+        }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}" alt="${
+          allData.github
+        }'s GitHub Streak" />`
+      : ""
+  }`;
+
+  const githubStatistics = `${
+    allData.github.trim() !== "" && allData.displayStat
+      ? `
+      <div style="display: flex; gap: 20px;">  
+      ${gitStat} 
+      ${topLang}  
+      ${streak} 
+    </div>
+      `
+      : ""
+  }`;
+
+  //Github Ststistics completed
 
   console.log(
     facebook,
@@ -251,7 +300,8 @@ const Markdown = () => {
     gfg,
     profilebadge,
     githubTrophy,
-    RandomQuote
+    RandomQuote,
+    githubStatistics
   );
   return <div>Markdown</div>;
 };
