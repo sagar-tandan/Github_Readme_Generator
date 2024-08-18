@@ -7,6 +7,14 @@ const Markdowns = () => {
   const [allSkill, setAllSkill] = useState(SkillsBadges);
   const [selectedSkill, setSelectedSkill] = useState([]);
 
+  const formatUrl = (url) => {
+    // If URL is relative, convert to absolute URL
+    if (url && !url.startsWith("http") && !url.startsWith("https")) {
+      return `http://${url}`;
+    }
+    return url;
+  };
+
   //Hero Section start here
 
   const name = `${
@@ -31,12 +39,40 @@ const Markdowns = () => {
       : ""
   }`;
 
+  const project1Html = `${
+    allData.work.trim() !== ""
+      ? `${
+          allData.worklink.trim() === ""
+            ? `- ${allData.worktitle}  <span class='font-semibold'>${allData.work}</span>`
+            : `- ${
+                allData.worktitle
+              } <a class="underline text-blue-500" href="${formatUrl(
+                allData.worklink
+              )}" target='_blank'>${allData.work}</a>`
+        }`
+      : ""
+  }`;
+
   const project2 = `${
     allData.collab.trim() !== ""
       ? `${
           allData.collablink.trim() === ""
             ? `- ${allData.collabtitle}  **${allData.collab}**`
             : `- ${allData.collabtitle} [${allData.collab}](${allData.collablink})`
+        }`
+      : ""
+  }`;
+
+  const project2Html = `${
+    allData.collab.trim() !== ""
+      ? `${
+          allData.collablink.trim() === ""
+            ? `- ${allData.collabtitle}  <span class='font-semibold'>${allData.collab}</span>`
+            : `- ${
+                allData.collabtitle
+              } <a class="underline text-blue-500" href="${formatUrl(
+                allData.collablink
+              )}" target='_blank'>${allData.collab}</a>`
         }`
       : ""
   }`;
@@ -51,18 +87,51 @@ const Markdowns = () => {
       : ""
   }`;
 
+  const project3Html = `${
+    allData.help.trim() !== ""
+      ? `${
+          allData.helplink.trim() === ""
+            ? `- ${allData.helptitle}  <span class='font-semibold'>${allData.help}</span>`
+            : `- ${
+                allData.helptitle
+              } <a class="underline text-blue-500" href="${formatUrl(
+                allData.helplink
+              )}" target='_blank'>${allData.help}</a>`
+        }`
+      : ""
+  }`;
+
   const learning = `${
     allData.learn.trim() !== ""
       ? `-${allData.learntitle} **${allData.learn}**`
       : ""
   }`;
+
+  const learningHtml = `${
+    allData.learn.trim() !== ""
+      ? `-${allData.learntitle} <span class='font-semibold'>${allData.learn}</span>`
+      : ""
+  }`;
+
   const asking = `${
     allData.ask.trim() !== "" ? `-${allData.asktitle} **${allData.ask}**` : ""
+  }`;
+
+  const askingHtml = `${
+    allData.ask.trim() !== ""
+      ? `-${allData.asktitle} <span class='font-semibold'>${allData.ask}</span>`
+      : ""
   }`;
 
   const email = `${
     allData.email.trim() !== ""
       ? `-${allData.emailtitle}:[${allData.email}](mailto:${allData.email})`
+      : ""
+  }`;
+
+  const emailHtml = `${
+    allData.email.trim() !== ""
+      ? `-${allData.emailtitle}: <a class="underline text-blue-500" href="mailto:${allData.email}">${allData.email}</a>`
       : ""
   }`;
 
@@ -72,9 +141,29 @@ const Markdowns = () => {
       : ""
   }`;
 
+  const portfolioHtml = `${
+    allData.project.trim() !== ""
+      ? `-${
+          allData.projecttitle
+        }: <a class="underline text-blue-500" href="${formatUrl(
+          allData.project
+        )}">${allData.project}</a>`
+      : ""
+  }`;
+
   const article = `${
     allData.article.trim() !== ""
       ? `-${allData.articletitle} [${allData.article}](${allData.article})`
+      : ""
+  }`;
+
+  const articleHtml = `${
+    allData.article.trim() !== ""
+      ? `-${
+          allData.articletitle
+        }: <a class="underline text-blue-500" href="${formatUrl(
+          allData.article
+        )}">${allData.article}</a>`
       : ""
   }`;
 
@@ -84,8 +173,24 @@ const Markdowns = () => {
       : ""
   }`;
 
+  const resumeHtml = `${
+    allData.exp.trim() !== ""
+      ? `-${
+          allData.exptitle
+        }: <a class="underline text-blue-500" href="${formatUrl(
+          allData.exp
+        )}">${allData.exp}</a>`
+      : ""
+  }`;
+
   const funfact = `${
     allData.fun.trim() !== "" ? `-${allData.funtitle} **${allData.fun}**` : ""
+  }`;
+
+  const funHtml = `${
+    allData.fun.trim() !== ""
+      ? `-${allData.funtitle} <span class='font-semibold'>${allData.fun}`
+      : ""
   }`;
 
   //Hero section Completed
@@ -308,7 +413,7 @@ const Markdowns = () => {
 
   //Contribution graph Completed
 
-  function convertMarkdownToUrl(markdown) {
+  function convertProfileToUrl(markdown) {
     // Match the URL part of the Markdown image syntax
     const urlMatch = markdown.match(/\!\[\]\((.*?)\)/);
     return urlMatch ? urlMatch[1] : "";
@@ -355,11 +460,36 @@ const Markdowns = () => {
           <hr className="border-[1px]" />
           <img
             className="w-[200px] mb-2"
-            src={convertMarkdownToUrl(profilebadge)}
+            src={convertProfileToUrl(profilebadge)}
             alt=""
           />
-          {/* <h1 className="text-2xl font-semibold">🚀 About Me</h1>
-          <hr className="border-[1px]" /> */}
+          {(project1 ||
+            project2 ||
+            project3 ||
+            learning ||
+            asking ||
+            email ||
+            portfolio ||
+            article ||
+            resume ||
+            funfact) && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">🚀 About Me</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <div className="w-full flex flex-col gap-1">
+                <div dangerouslySetInnerHTML={{ __html: project1Html }} />
+                <div dangerouslySetInnerHTML={{ __html: project2Html }} />
+                <div dangerouslySetInnerHTML={{ __html: project3Html }} />
+                <div dangerouslySetInnerHTML={{ __html: learningHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: askingHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: emailHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: portfolioHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: resumeHtml }} />
+                <div dangerouslySetInnerHTML={{ __html: funHtml }} />
+              </div>
+            </div>
+          )}
 
           {/* Render social media badges */}
           {(facebook ||
@@ -465,7 +595,6 @@ const Markdowns = () => {
               <hr className="border-[1px] mt-1 mb-5" />
               <div className="flex gap-5 mt-8 w-full items-center">
                 <img
-                  // className="w-full"
                   className="w-[550px]"
                   src={`https://github-readme-streak-stats.herokuapp.com/?user=${
                     allData.github
@@ -475,7 +604,6 @@ const Markdowns = () => {
                   alt="streak"
                 />
                 <img
-                  // className="w-full"
                   className="w-[500px]"
                   src={`https://github-readme-stats.vercel.app/api?username=${
                     allData.github
@@ -485,7 +613,6 @@ const Markdowns = () => {
                   alt="stats"
                 />
                 <img
-                  // className="w-full"
                   className="w-[400px]"
                   src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
                     allData.github
