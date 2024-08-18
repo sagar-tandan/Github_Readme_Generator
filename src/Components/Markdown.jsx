@@ -464,6 +464,18 @@ const Markdowns = () => {
               />
             </div>
           )}
+
+          {/* Render Quote section */}
+          {RandomQuote && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">✍️ Random Dev Quote</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <img
+                src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme}`}
+                alt="quote"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
