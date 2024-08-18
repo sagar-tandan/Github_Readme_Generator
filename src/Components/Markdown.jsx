@@ -200,11 +200,9 @@ const Markdown = () => {
 
   //skill section Completed
 
-
-  
   //Visitor Count Badge started
   const profilebadge = `${
-    allData.github && allData.displayVisiter
+    allData.github.trim() !== "" && allData.displayVisiter
       ? `![](https://visitcount.itsvg.in/api?id=${
           allData.github
         }&label=${encodeURIComponent(allData.visitorLabel)}&color=${
@@ -214,7 +212,15 @@ const Markdown = () => {
   }`;
   //visitor count badge Completed
 
-
+  const githubTrophy = `${
+    allData.github.trim() !== "" && allData.displaytrophy
+      ? `![](https://github-profile-trophy.vercel.app/?username=${
+          allData.github
+        }&theme=${
+          allData.trophyTheme
+        }&no-frame=${!allData.trophyBorder}&no-bg=${!allData.trophyBackground}&margin-w=4)`
+      : ""
+  }`;
 
   console.log(
     facebook,
@@ -228,7 +234,8 @@ const Markdown = () => {
     dribble,
     insta,
     gfg,
-    profilebadge
+    profilebadge,
+    githubTrophy
   );
   return <div>Markdown</div>;
 };
