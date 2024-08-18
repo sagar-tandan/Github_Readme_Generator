@@ -86,6 +86,9 @@ const ContextProvider = ({ children }) => {
     //support
     buymeacoffee: "",
     kofi: "",
+
+    //output
+    displayOutput: false,
   });
 
   console.log(allData);
