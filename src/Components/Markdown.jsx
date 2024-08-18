@@ -448,6 +448,33 @@ const Markdowns = () => {
             </div>
           )}
 
+          {/* Contribution Graph */}
+          {ContributionGraph && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">📊 Contribution Graph</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <img
+                className="w-full rounded-md "
+                src={`https://github-readme-activity-graph.vercel.app/graph?username=${
+                  allData.github
+                }&bg_color=${allData.activityBg.replace(
+                  "#",
+                  ""
+                )}&color=${allData.activityText.replace(
+                  "#",
+                  ""
+                )}&line=${allData.activityLine.replace(
+                  "#",
+                  ""
+                )}&point=${allData.activityPoint.replace(
+                  "#",
+                  ""
+                )}&area=true&hide_border=true`}
+                alt="graph"
+              />
+            </div>
+          )}
+
           {/* Render Trophy Section */}
           {githubTrophy && (
             <div className="w-full my-4">
