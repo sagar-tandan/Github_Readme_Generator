@@ -158,7 +158,9 @@ const Markdown = () => {
       : ""
   }`;
 
+  //contact section completed
 
+  //Donate Section start
 
   const kofi = `${
     allData.kofi.trim() !== ""
@@ -171,10 +173,21 @@ const Markdown = () => {
       ? `[![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/${allData.buymeacoffee})`
       : ""
   }`;
-  //contact section completed
+
+  //donate section completed
 
   console.log(
-   facebook,linkedin,leetcode, youtube, hackerrank,twitter, medium,kaggle,dribble,insta,gfg
+    facebook,
+    linkedin,
+    leetcode,
+    youtube,
+    hackerrank,
+    twitter,
+    medium,
+    kaggle,
+    dribble,
+    insta,
+    gfg
   );
   return <div>Markdown</div>;
 };
