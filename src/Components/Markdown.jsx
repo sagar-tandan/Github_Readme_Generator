@@ -376,7 +376,7 @@ const Markdowns = () => {
             <div className="w-full my-4">
               <h1 className="text-2xl font-semibold ">🌐 Socials</h1>
               <hr className="border-[1px] mt-1 mb-5" />
-              <div className="w-full flex gap-1">
+              <div className="w-full flex gap-2">
                 {facebook && (
                   <div dangerouslySetInnerHTML={{ __html: fbContent }} />
                 )}
@@ -421,7 +421,7 @@ const Markdowns = () => {
             <div className="w-full my-4">
               <h1 className="text-2xl font-semibold ">💻 Tech Stack</h1>
               <hr className="border-[1px] mt-1 mb-5" />
-              <div className="w-full flex gap-1">
+              <div className="w-full flex gap-2">
                 {allData.selectedSkillBadge.map((skill) => (
                   <img src={extractTechBadgeUrl(skill)} alt="tech" />
                 ))}
@@ -459,7 +459,9 @@ const Markdowns = () => {
           {/* Render Github Stattistics */}
           {githubStatistics && (
             <div className="w-full my-4">
-              <h1 className="text-2xl font-semibold ">🏆 GitHub Trophies</h1>
+              <h1 className="text-2xl font-semibold ">
+                📈 GitHub Stats & 🔍 Used Languages
+              </h1>
               <hr className="border-[1px] mt-1 mb-5" />
               <div className="flex gap-5 mt-8 w-full items-center">
                 <img
@@ -524,6 +526,31 @@ const Markdowns = () => {
                 src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme}`}
                 alt="quote"
               />
+            </div>
+          )}
+
+          {/* Render support section */}
+          {(kofi || buymeacoffee) && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">
+                💰 You can help me by Donating
+              </h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <div className="w-full flex gap-2">
+                <a href={`https://buymeacoffee.com/${allData.buymeacoffee}`}>
+                  <img
+                    src={`https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black`}
+                    alt="buymeacoffee"
+                  />
+                </a>
+
+                <a href={`https://ko-fi.com/${allData.kofi}`}>
+                  <img
+                    src={`https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white`}
+                    alt="kofi"
+                  />
+                </a>
+              </div>
             </div>
           )}
         </div>
