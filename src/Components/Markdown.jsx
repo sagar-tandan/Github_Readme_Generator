@@ -234,8 +234,6 @@ const Markdown = () => {
   }`;
   //Random quote Completed
 
-
-
   //Github Statistics
 
   const gitStat = `${
@@ -286,6 +284,30 @@ const Markdown = () => {
 
   //Github Ststistics completed
 
+  //Contribution Graph
+
+  const ContributionGraph = `${
+    allData.github.trim() !== "" && allData.displayActivity
+      ? `![](https://github-readme-activity-graph.vercel.app/graph?username=${
+          allData.github
+        }&bg_color=${allData.activityBg.replace(
+          "#",
+          ""
+        )}&color=${allData.activityText.replace(
+          "#",
+          ""
+        )}&line=${allData.activityLine.replace(
+          "#",
+          ""
+        )}&point=${allData.activityPoint.replace(
+          "#",
+          ""
+        )}&area=true&hide_border=true)`
+      : ""
+  }`;
+
+  //Contribution graph Completed
+
   console.log(
     facebook,
     linkedin,
@@ -301,7 +323,8 @@ const Markdown = () => {
     profilebadge,
     githubTrophy,
     RandomQuote,
-    githubStatistics
+    githubStatistics,
+    ContributionGraph
   );
   return <div>Markdown</div>;
 };
