@@ -146,7 +146,7 @@ const DisplayGithubStats = () => {
 
           <button
             onClick={(e) => handlePrivateCommits(e)}
-            className={`w-[200px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-[220px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
               allData.statPrivateCommit ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
