@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../Context/context";
 import SkillsBadges from "./SkillBadge.jsx";
 
-const Markdown = () => {
+const Markdowns = () => {
   const { allData, setAllData } = useContext(AllContext);
   const [allSkill, setAllSkill] = useState(SkillsBadges);
   const [selectedSkill, setSelectedSkill] = useState([]);
@@ -326,7 +326,116 @@ const Markdown = () => {
     githubStatistics,
     ContributionGraph
   );
-  return <div>Markdown</div>;
+
+  function convertMarkdownToUrl(markdown) {
+    // Match the URL part of the Markdown image syntax
+    const urlMatch = markdown.match(/\!\[\]\((.*?)\)/);
+    return urlMatch ? urlMatch[1] : "";
+  }
+
+  function convertSocialMarkdownToHtml(markdown) {
+    // Regular expression to match Markdown badge syntax
+    return markdown.replace(
+      /\[!\[([^\]]+)\]\(([^)]+)\)\]\(([^)]+)\)/g,
+      '<a href="$3"><img src="$2" alt="$1" /></a>'
+    );
+  }
+  const fbContent = convertSocialMarkdownToHtml(facebook);
+  const linkedinContent = convertSocialMarkdownToHtml(linkedin);
+  const twitterContent = convertSocialMarkdownToHtml(twitter);
+  const instaContent = convertSocialMarkdownToHtml(insta);
+  const dribbleContent = convertSocialMarkdownToHtml(dribble);
+  const kaggleContent = convertSocialMarkdownToHtml(kaggle);
+  const hackerrankContent = convertSocialMarkdownToHtml(hackerrank);
+  const mediumContent = convertSocialMarkdownToHtml(medium);
+  const leetcodeContent = convertSocialMarkdownToHtml(leetcode);
+  const youtubeContent = convertSocialMarkdownToHtml(youtube);
+  const gfgContent = convertSocialMarkdownToHtml(gfg);
+
+  // // Convert Markdown badges to HTML
+  // const htmlBadges = convertSocialMarkdownToHtml(allBadges);
+
+  return (
+    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
+      <div className="title w-full flex flex-col">
+        <div className="w-full flex justify-center items-center text-lg ">
+          <span className="bg-black px-8 py-2 font-semibold rounded-t-md text-white">
+            PREVIEW
+          </span>
+        </div>
+        <div className="w-full border-2 border-black rounded-md px-4 py-4 flex flex-col gap-3">
+          <div
+            className="text-xl font-semibold"
+            dangerouslySetInnerHTML={{ __html: name }}
+          />
+          <div dangerouslySetInnerHTML={{ __html: subtitle }} />
+          <hr className="border-[1px]" />
+          <img
+            className="w-[200px] mb-2"
+            src={convertMarkdownToUrl(profilebadge)}
+            alt=""
+          />
+          {/* <h1 className="text-2xl font-semibold">🚀 About Me</h1>
+          <hr className="border-[1px]" /> */}
+
+          {/* Render social media badges */}
+          {(facebook ||
+            linkedin ||
+            twitter ||
+            insta ||
+            dribble ||
+            kaggle ||
+            hackerrank ||
+            medium ||
+            leetcode ||
+            youtube ||
+            gfg) && (
+            <div className="w-full my-4">
+              <h1 className="text-2xl font-semibold ">🌐 Socials</h1>
+              <hr className="border-[1px] mt-1 mb-5" />
+              <div className="w-full flex gap-1">
+                {facebook && (
+                  <div dangerouslySetInnerHTML={{ __html: fbContent }} />
+                )}
+                {linkedin && (
+                  <div dangerouslySetInnerHTML={{ __html: linkedinContent }} />
+                )}
+                {twitter && (
+                  <div dangerouslySetInnerHTML={{ __html: twitterContent }} />
+                )}
+                {insta && (
+                  <div dangerouslySetInnerHTML={{ __html: instaContent }} />
+                )}
+                {kaggle && (
+                  <div dangerouslySetInnerHTML={{ __html: kaggleContent }} />
+                )}
+                {dribble && (
+                  <div dangerouslySetInnerHTML={{ __html: dribbleContent }} />
+                )}
+                {hackerrank && (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: hackerrankContent }}
+                  />
+                )}
+                {youtube && (
+                  <div dangerouslySetInnerHTML={{ __html: youtubeContent }} />
+                )}
+                {medium && (
+                  <div dangerouslySetInnerHTML={{ __html: mediumContent }} />
+                )}
+                {leetcode && (
+                  <div dangerouslySetInnerHTML={{ __html: leetcodeContent }} />
+                )}
+                {gfg && (
+                  <div dangerouslySetInnerHTML={{ __html: gfgContent }} />
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default Markdown;
+export default Markdowns;
