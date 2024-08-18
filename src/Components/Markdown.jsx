@@ -176,6 +176,10 @@ const Markdown = () => {
 
   //donate section completed
 
+
+  //Skill section started
+  
+
   console.log(
     facebook,
     linkedin,

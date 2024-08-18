@@ -505,6 +505,8 @@ const other = [
     title: "linux",
   },
 ];
+
+
 const Skills = () => {
   const { allData, setAllData } = useContext(AllContext);
   const [search, setSearch] = useState("");
