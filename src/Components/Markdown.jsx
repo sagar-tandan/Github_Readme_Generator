@@ -471,42 +471,58 @@ ${subtitle && subtitle}
       .filter(Boolean)
       .join("\n\n");
 
-    const markdown3 = `
-${[
-  facebook,
-  linkedin,
-  twitter,
-  insta,
-  youtube,
-  dribble,
-  kaggle,
-  hackerrank,
-  leetcode,
-  medium,
-  gfg,
-]
-  .filter(Boolean)
-  .join(" ")}
+    const markdown3 = [
+      facebook && `${facebook}`,
+      linkedin && `${linkedin}`,
+      twitter && `${twitter}`,
+      insta && `${insta}`,
+      youtube && `${youtube}`,
+      dribble && `${dribble}`,
+      kaggle && `${kaggle}`,
+      hackerrank && `${hackerrank}`,
+      leetcode && `${leetcode}`,
+      medium && `${medium}`,
+      gfg && `${gfg}`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    const markdown4 = `
+${allData.selectedSkillBadge.join(" ")}
 `;
 
     const allMarkdown = `
 ${markdown1}
 ${
-  markdown2 &&
-  `
+  markdown2
+    ? `
 ## 🚀 About Me
 ${markdown2}
+
 `
+    : ""
 }
 ${
-  markdown3 &&
-  `
+  markdown3
+    ? `
 ## 🌐 Socials
 ${markdown3}
 `
+    : ""
 }
-`;
 
+${
+  markdown4
+    ? `
+## 💻 Tech Stack
+${markdown4}
+`
+    : ""
+}
+
+
+`;
+    console.log("This is skill markdown ", allData.selectedSkillBadge);
     navigator.clipboard.writeText(allMarkdown);
   };
 
