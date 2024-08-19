@@ -17,7 +17,7 @@ const Addons = () => {
         {/* <DisplayTrophy /> */}
         <RandomQuote />
         {/* <DisplayGithubStats /> */}
-        {/* <Contribution /> */}
+        <Contribution />
       </div>
     </div>
   );

@@ -50,11 +50,11 @@ const Contribution = () => {
         <span className="text-xl">Contribution Graph</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex gap-3 justify-between mt-5">
+      <div className="w-full md:flex gap-3 md:justify-between mt-5 grid grid-cols-2 text-sm sm:text-md">
         <div className="bgcolor flex gap-2 items-center">
           <span
             onClick={() => setOpenBg((prev) => !prev)}
-            className={`w-8 h-8 rounded-full cursor-pointer relative border-2 border-black`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full cursor-pointer relative border-2 border-black`}
             style={{ backgroundColor: allData.activityBg }}
           >
             <div
@@ -65,13 +65,14 @@ const Contribution = () => {
               <HexColorPicker color={bgColor} onChange={setBgColor} />
             </div>
           </span>
-          <p>Background Color</p>
+          <p className="sm:inline hidden">Background Color</p>
+          <p className="sm:hidden inline">Bg Color</p>
         </div>
 
-        <div className="bgcolor flex gap-2 items-center">
+        <div className="bgcolor flex gap-2 items-center justify-center md:justify-start">
           <span
             onClick={() => setOpenLine((prev) => !prev)}
-            className="w-8 h-8 border-2 border-black rounded-full cursor-pointer relative"
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full cursor-pointer relative border-2 border-black`}
             style={{ backgroundColor: allData.activityLine }}
           >
             <div
@@ -85,10 +86,10 @@ const Contribution = () => {
           <p>Line Color</p>
         </div>
 
-        <div className="bgcolor flex gap-2 items-center">
+        <div className="bgcolor flex gap-2 items-center ">
           <span
             onClick={() => setOpenPoint((prev) => !prev)}
-            className="w-8 h-8 border-2 border-black rounded-full cursor-pointer relative"
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full cursor-pointer relative border-2 border-black`}
             style={{ backgroundColor: allData.activityPoint }}
           >
             <div
@@ -102,10 +103,10 @@ const Contribution = () => {
           <p>Point Color</p>
         </div>
 
-        <div className="bgcolor flex gap-2 items-center">
+        <div className="bgcolor flex gap-2 items-center justify-center md:justify-start">
           <span
             onClick={() => setOpenText((prev) => !prev)}
-            className="w-8 h-8 rounded-full cursor-pointer relative border-2 border-black"
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full cursor-pointer relative border-2 border-black`}
             style={{ backgroundColor: allData.activityText }}
           >
             <div
@@ -126,7 +127,7 @@ const Contribution = () => {
       ) : (
         <div className="flex gap-3 mt-5 w-full rounded-sm p-1">
           <img
-            className="w-full rounded-sm "
+            className="w-full rounded-sm"
             src={`https://github-readme-activity-graph.vercel.app/graph?username=${
               allData.github
             }&bg_color=${allData.activityBg.replace(
