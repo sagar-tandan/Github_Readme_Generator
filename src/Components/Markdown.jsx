@@ -7,6 +7,141 @@ const Markdowns = () => {
   const [allSkill, setAllSkill] = useState(SkillsBadges);
   const [selectedSkill, setSelectedSkill] = useState([]);
 
+  const generateMarkDown = () => {
+    const markdown1 = `
+${name && name}
+    
+${subtitle && subtitle}
+    
+    `;
+
+    const markdown2 = [
+      project1 && `${project1}`,
+      project2 && `${project2}`,
+      project3 && `${project3}`,
+      learning && `${learning}`,
+      asking && `${asking}`,
+      email && `${email}`,
+      portfolio && `${portfolio}`,
+      article && `${article}`,
+      resume && `${resume}`,
+      funfact && `${funfact}`,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const markdown3 = [
+      facebook && `${facebook}`,
+      linkedin && `${linkedin}`,
+      twitter && `${twitter}`,
+      insta && `${insta}`,
+      youtube && `${youtube}`,
+      dribble && `${dribble}`,
+      kaggle && `${kaggle}`,
+      hackerrank && `${hackerrank}`,
+      leetcode && `${leetcode}`,
+      medium && `${medium}`,
+      gfg && `${gfg}`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    const markdown4 = `
+${allData.selectedSkillBadge.length > 0 && allData.selectedSkillBadge.join(" ")}
+    `;
+
+    const markdown5 = `
+      ${
+        ContributionGraph
+          ? `
+## 📊 Contribution Graph
+${ContributionGraph}`
+          : ""
+      }
+    
+    `;
+
+    const markdown6 = `
+    ${
+      githubStatistics
+        ? `
+## 📈 GitHub Stats & 🔍 Used Languages
+${githubStatistics}
+      `
+        : ""
+    }
+    `;
+
+    const markdown7 = `
+    ${
+      githubTrophy
+        ? `
+## 🏆 GitHub Trophies
+${githubTrophy}
+      `
+        : ""
+    }
+    `;
+
+    const markdown8 = `
+    ${
+      RandomQuote
+        ? `
+## ✍️ Random Dev Quote  
+${RandomQuote}
+    `
+        : ""
+    }
+    `;
+    const markdown9 = `
+    ${
+      buymeacoffee || kofi
+        ? `
+## 💰 You can help me by Donating
+${buymeacoffee && buymeacoffee}
+${kofi && kofi}
+      `
+        : ""
+    }
+    `;
+
+    return `
+${markdown1}
+    
+${profilebadge ? profilebadge : ""}
+${
+  markdown2
+    ? `
+## 🚀 About Me
+${markdown2}
+    
+    `
+    : ""
+}
+${
+  markdown3
+    ? `
+## 🌐 Socials
+${markdown3}
+    `
+    : ""
+}
+    ${
+      markdown4
+        ? `
+## 💻 Tech Stack
+${markdown4}
+    `
+        : ""
+    }
+${markdown5 ? markdown5 : ""}
+${markdown6 ? markdown6 : ""}
+${markdown7 ? markdown7 : ""}
+${markdown8 ? markdown8 : ""}
+${markdown9 ? markdown9 : ""}
+    `;
+  };
+
   const formatUrl = (url) => {
     // If URL is relative, convert to absolute URL
     if (url && !url.startsWith("http") && !url.startsWith("https")) {
@@ -447,145 +582,34 @@ ${streak}
     return match ? match[1] : null;
   }
 
+  //COPY MARKDOWN FUNCTIONALITY
   const CopyMarkdown = (event) => {
     event.preventDefault();
-    const markdown1 = `
-${name && name}
+    // console.log(allMarkdown);
+    const allMarkdownn = generateMarkDown();
+    navigator.clipboard.writeText(allMarkdownn);
+  };
 
-${subtitle && subtitle}
+  const downLoadMarkdown = (e) => {
+    e.preventDefault();
+    const allMarkdowns = generateMarkDown();
+    const blob = new Blob([allMarkdowns], { type: "text / markdown" });
+    const url = URL.createObjectURL(blob);
+    // Create a link element
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "file.md";
 
-`;
+    // Append the link to the body
+    document.body.appendChild(a);
 
-    const markdown2 = [
-      project1 && `${project1}`,
-      project2 && `${project2}`,
-      project3 && `${project3}`,
-      learning && `${learning}`,
-      asking && `${asking}`,
-      email && `${email}`,
-      portfolio && `${portfolio}`,
-      article && `${article}`,
-      resume && `${resume}`,
-      funfact && `${funfact}`,
-    ]
-      .filter(Boolean)
-      .join("\n\n");
+    // Programmatically click the link to trigger the download
+    a.click();
 
-    const markdown3 = [
-      facebook && `${facebook}`,
-      linkedin && `${linkedin}`,
-      twitter && `${twitter}`,
-      insta && `${insta}`,
-      youtube && `${youtube}`,
-      dribble && `${dribble}`,
-      kaggle && `${kaggle}`,
-      hackerrank && `${hackerrank}`,
-      leetcode && `${leetcode}`,
-      medium && `${medium}`,
-      gfg && `${gfg}`,
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    const markdown4 = `
-${allData.selectedSkillBadge.join(" ")}
-`;
-
-    const markdown5 = `
-  ${
-    ContributionGraph
-      ? `
-## 📊 Contribution Graph
-${ContributionGraph}`
-      : ""
-  }
-
-`;
-
-    const markdown6 = `
-${
-  githubStatistics
-    ? `
-## 📈 GitHub Stats & 🔍 Used Languages
-${githubStatistics}
-  `
-    : ""
-}
-`;
-
-    const markdown7 = `
-${
-  githubTrophy
-    ? `
-## 🏆 GitHub Trophies
-${githubTrophy}
-  `
-    : ""
-}
-`;
-
-    const markdown8 = `
-${
-  RandomQuote
-    ? `
-## ✍️ Random Dev Quote  
-${RandomQuote}
-`
-    : ""
-}
-`;
-
-    const markdown9 = `
-${buymeacoffee ? buymeacoffee : ""}
-${kofi ? kofi : ""}
-`;
-
-    const allMarkdown = `
-${markdown1}
-
-${profilebadge ? profilebadge : ""}
-${
-  markdown2
-    ? `
-## 🚀 About Me
-${markdown2}
-
-`
-    : ""
-}
-${
-  markdown3
-    ? `
-## 🌐 Socials
-${markdown3}
-`
-    : ""
-}
-
-${
-  markdown4
-    ? `
-## 💻 Tech Stack
-${markdown4}
-`
-    : ""
-}
-${markdown5 ? markdown5 : ""}
-${markdown6 ? markdown6 : ""}
-${markdown7 ? markdown7 : ""}
-${markdown8 ? markdown8 : ""}
-${
-  markdown9
-    ? `
-## 💰 You can help me by Donating
-${markdown9}
-  `
-    : ""
-}
-
-
-`;
-    navigator.clipboard.writeText(allMarkdown);
+    // Clean up
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    console.log(url);
   };
 
   return (
@@ -599,7 +623,10 @@ ${markdown9}
           >
             COPY MARKDOWN
           </button>
-          <button className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300">
+          <button
+            onClick={(e) => downLoadMarkdown(e)}
+            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+          >
             DOWNLOAD MARKDOWN FILE
           </button>
           <button className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300">
