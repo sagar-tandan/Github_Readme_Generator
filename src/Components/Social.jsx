@@ -25,12 +25,12 @@ const Social = () => {
   };
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-1">
-      <h1 className="w-full text-2xl font-semibold mb-8">Socials</h1>
-      <div className="w-full grid grid-cols-3 gap-20">
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={fb} alt="" />
+      <h1 className="w-full text-2xl font-semibold mb-4 lg:mb-8">Socials</h1>
+      <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-8 md:gap-8 lg:gap-12 xl:gap-14">
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={fb} alt="" />
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="facebook"
             value={allData.facebook}
@@ -39,10 +39,10 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={github} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={github} alt="" />
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="github"
             value={allData.github}
@@ -51,11 +51,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={linkedin} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={linkedin} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="linkedin"
             value={allData.linkedin}
@@ -63,11 +63,11 @@ const Social = () => {
             placeholder="linkedin username"
           />
         </div>
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={twitter} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={twitter} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="twitter"
             value={allData.twitter}
@@ -76,11 +76,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={insta} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={insta} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="insta"
             value={allData.insta}
@@ -88,11 +88,11 @@ const Social = () => {
             placeholder="instagram username"
           />
         </div>
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={yt} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={yt} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="youtube"
             value={allData.youtube}
@@ -100,11 +100,11 @@ const Social = () => {
             placeholder="youtube username"
           />
         </div>
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={hackerrank} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={hackerrank} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="hackerrank"
             value={allData.hackerrank}
@@ -113,11 +113,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={dribble} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={dribble} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="dribble"
             value={allData.dribble}
@@ -126,11 +126,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={geeksforgeek} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={geeksforgeek} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="GFG"
             value={allData.GFG}
@@ -139,11 +139,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={leetcode} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={leetcode} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="leetcode"
             value={allData.leetcode}
@@ -152,11 +152,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={medium} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={medium} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="medium"
             value={allData.medium}
@@ -165,11 +165,11 @@ const Social = () => {
           />
         </div>
 
-        <div className="w-full flex gap-4 items-center">
-          <img className="w-8 h-8" src={kaggle} alt="" />
+        <div className="w-full flex gap-2 md:gap-4 items-center">
+          <img className="w-7 h-7 md:w-8 md:h-8" src={kaggle} alt="" />
 
           <input
-            className="w-full outline-none border-b-2 border-[#d3d3d3] text-lg p-1"
+            className="w-full outline-none border-b-2 border-[#d3d3d3] text-sm md:text-lg p-1"
             type="text"
             name="kaggle"
             value={allData.kaggle}

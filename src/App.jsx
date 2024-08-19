@@ -17,12 +17,12 @@ function App() {
     <div className="w-full flex flex-col p-6 sm:p-16 font-Poppins tracking-widest mx-auto">
       {!allData.displayOutput ? (
         <div className="w-full flex flex-col gap-[70px] mx-auto">
-          {/* <Hero /> */}
+          <Hero />
           <Skills />
-          {/* <Social />
-          <Addons />
+           <Social />
+          {/* <Addons />
           <Support />
-          <GenerateReadme /> */}
+          <GenerateReadme />  */}
         </div>
       ) : (
         <div className="w-full flex flex-col">
