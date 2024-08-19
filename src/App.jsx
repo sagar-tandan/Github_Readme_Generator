@@ -14,12 +14,12 @@ function App() {
 
 
   return (
-    <div className="w-full flex flex-col p-16 font-Poppins tracking-widest mx-auto">
+    <div className="w-full flex flex-col p-6 sm:p-16 font-Poppins tracking-widest mx-auto">
       {!allData.displayOutput ? (
         <div className="w-full flex flex-col gap-[70px] mx-auto">
-          <Hero />
-          {/* <Skills />
-          <Social />
+          {/* <Hero /> */}
+          <Skills />
+          {/* <Social />
           <Addons />
           <Support />
           <GenerateReadme /> */}

@@ -8,7 +8,7 @@ const SkillsBadges = [
     img: "![C++](https://img.shields.io/badge/c%2B%2B-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)",
   },
   {
-    title: "csharp",
+    title: "c#",
     img: "![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)",
   },
   {
@@ -20,11 +20,11 @@ const SkillsBadges = [
     img: "![Java](https://img.shields.io/badge/java-%23F7DF1C.svg?style=for-the-badge&logo=java&logoColor=white)",
   },
   {
-    title: "javascript",
+    title: "js",
     img: "![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1C.svg?style=for-the-badge&logo=javascript&logoColor=white)",
   },
   {
-    title: "typescript",
+    title: "ts",
     img: "![TypeScript](https://img.shields.io/badge/typescript-%232573D4.svg?style=for-the-badge&logo=typescript&logoColor=white)",
   },
   {
