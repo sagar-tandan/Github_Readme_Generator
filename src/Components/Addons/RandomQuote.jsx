@@ -14,7 +14,7 @@ const RandomQuote = () => {
   };
 
   return (
-    <div className="mt-10 w-full flex flex-col">
+    <div className="sm:mt-10 w-full flex flex-col">
       <div className="w-full flex gap-3 items-center">
         <div
           onClick={() => handleClick()}

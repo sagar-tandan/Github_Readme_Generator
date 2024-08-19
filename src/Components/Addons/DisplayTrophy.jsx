@@ -27,11 +27,11 @@ const DisplayTrophy = () => {
   };
 
   return (
-    <div className="mt-10 w-full flex flex-col">
-      <div className="w-full flex gap-3">
-        <div
+    <div className="sm:mt-10 w-full flex flex-col">
+      <div className="w-full flex gap-3 items-center">
+      <div
           onClick={() => handleClick()}
-          className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+          className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
           <div
             className={`w-full ${
@@ -39,15 +39,15 @@ const DisplayTrophy = () => {
             }`}
           ></div>
         </div>
-        <span className=" text-xl">Github Trophies</span>
+        <span className="text-lg sm:text-xl">Github Trophies</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex gap-3 justify-between">
-        <div className="w-[350px] flex gap-3 mt-5 items-center">
-          <label className="text-lg">Theme : </label>
+      <div className="w-full flex sm:gap-3 justify-between sm:flex-row flex-col ">
+        <div className="w-full flex gap-3 mt-5 items-center">
+          <label className="text-sm md:text-lg">Theme : </label>
           <select
             onChange={(e) => handleThemeChange(e)}
-            className="border-none rounded-sm px-2 text-lg outline-none w-[250px]"
+            className="border-none rounded-sm px-2 text-sm md:text-lg outline-none w-[50%] sm:w-[40%] "
             name="trophyTheme"
             id="trophyTheme"
             value={allData.trophyTheme}
@@ -66,10 +66,10 @@ const DisplayTrophy = () => {
             ))}
           </select>
         </div>
-        <div className="flex gap-10">
+        <div className="w-full flex gap-10 justify-between sm:justify-end px-2 text-sm sm:text-md">
           <button
             onClick={(e) => handleBorder(e)}
-            className={`w-[150px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-[40%] sm:w-[50%] xl:w-[40%] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
               allData.trophyBorder ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -78,7 +78,7 @@ const DisplayTrophy = () => {
 
           <button
             onClick={(e) => handlebackground(e)}
-            className={`w-[150px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={` w-[42%] sm:w-[50%] xl:w-[40%] px-1 sm:px-5 mt-5 py-1 border-2 border-black rounded-sm ${
               allData.trophyBackground ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -87,7 +87,7 @@ const DisplayTrophy = () => {
         </div>
       </div>
 
-      <div className="flex gap-3 mt-5 w-full items-center p-2">
+      <div className="flex gap-3 sm:mt-5 w-full items-center p-2">
         {allData.github.trim() === "" ? (
           <p className="text-red-500">Invalid github username</p>
         ) : (

@@ -14,7 +14,7 @@ const Addons = () => {
           please wait for images to load after changing any values
         </p>
         {/* <DisplayVisitor /> */}
-        {/* <DisplayTrophy /> */}
+        <DisplayTrophy />
         <RandomQuote />
         {/* <DisplayGithubStats /> */}
         <Contribution />
