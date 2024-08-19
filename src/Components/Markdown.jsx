@@ -456,27 +456,37 @@ ${subtitle && subtitle}
 
 `;
 
-    const markdown2 = `
-${project1 && project1}
+    const markdown2 = [
+      project1 && `${project1}`,
+      project2 && `${project2}`,
+      project3 && `${project3}`,
+      learning && `${learning}`,
+      asking && `${asking}`,
+      email && `${email}`,
+      portfolio && `${portfolio}`,
+      article && `${article}`,
+      resume && `${resume}`,
+      funfact && `${funfact}`,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
 
-${project2 && project2}
-
-${project3 && project3}
-
-${learning && learning}
-
-${asking && asking}
-
-${email && email}
-
-${portfolio && portfolio}
-
-${article && article}
-
-${resume && resume}
-
-${funfact && resume}
-
+    const markdown3 = `
+${[
+  facebook,
+  linkedin,
+  twitter,
+  insta,
+  youtube,
+  dribble,
+  kaggle,
+  hackerrank,
+  leetcode,
+  medium,
+  gfg,
+]
+  .filter(Boolean)
+  .join(" ")}
 `;
 
     const allMarkdown = `
@@ -486,6 +496,13 @@ ${
   `
 ## 🚀 About Me
 ${markdown2}
+`
+}
+${
+  markdown3 &&
+  `
+## 🌐 Socials
+${markdown3}
 `
 }
 `;
