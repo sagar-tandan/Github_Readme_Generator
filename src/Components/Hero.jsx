@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../Context/context.jsx";
 
 const Hero = () => {
@@ -10,6 +10,9 @@ const Hero = () => {
       [name]: value,
     }));
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
 import Addons from "./Components/Addons";
 import GenerateReadme from "./Components/GenerateReadme";
@@ -11,6 +11,7 @@ import Markdowns from "./Components/Markdown";
 
 function App() {
   const { allData, setAllData } = useContext(AllContext);
+
 
   return (
     <div className="w-full flex flex-col p-16 font-Poppins tracking-widest ">

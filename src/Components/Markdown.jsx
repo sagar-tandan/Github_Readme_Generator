@@ -7,6 +7,10 @@ const Markdowns = () => {
   const [allSkill, setAllSkill] = useState(SkillsBadges);
   const [selectedSkill, setSelectedSkill] = useState([]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const generateMarkDown = () => {
     const markdown1 = `
 ${name && name}
@@ -598,7 +602,7 @@ ${streak}
     // Create a link element
     const a = document.createElement("a");
     a.href = url;
-    a.download = "file.md";
+    a.download = "Readme.md";
 
     // Append the link to the body
     document.body.appendChild(a);
@@ -610,6 +614,13 @@ ${streak}
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     console.log(url);
+  };
+
+  const CreateNewReadme = (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      location.reload();
+    }, 300);
   };
 
   return (
@@ -629,7 +640,10 @@ ${streak}
           >
             DOWNLOAD MARKDOWN FILE
           </button>
-          <button className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300">
+          <button
+            onClick={(e) => CreateNewReadme(e)}
+            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+          >
             CREATE NEW
           </button>
         </div>
