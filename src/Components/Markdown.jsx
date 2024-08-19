@@ -382,11 +382,11 @@ const Markdowns = () => {
   const githubStatistics = `${
     allData.github.trim() !== "" && allData.displayStat
       ? `
-      <div style="display: flex; gap: 20px;">  
-      ${gitStat} 
-      ${topLang}  
-      ${streak} 
-    </div>
+<div style="display: flex; gap: 20px;">  
+${gitStat} 
+${topLang}  
+${streak} 
+</div>
       `
       : ""
   }`;
@@ -491,6 +491,40 @@ ${subtitle && subtitle}
 ${allData.selectedSkillBadge.join(" ")}
 `;
 
+    const markdown5 = `
+  ${
+    ContributionGraph
+      ? `
+## 📊 Contribution Graph
+${ContributionGraph}`
+      : ""
+  }
+
+`;
+
+    const markdown6 = `
+${
+  githubStatistics
+    ? `
+## 📈 GitHub Stats & 🔍 Used Languages
+${githubStatistics}
+  `
+    : ""
+}
+`;
+
+    const markdown7 = `
+${
+  githubTrophy
+    ? `
+🏆 GitHub Trophies
+${githubTrophy}
+  `
+    : ""
+}
+`;
+
+ 
     const allMarkdown = `
 ${markdown1}
 ${
@@ -519,10 +553,12 @@ ${markdown4}
 `
     : ""
 }
+${markdown5 ? markdown5 : ""}
+${markdown6 ? markdown6 : ""}
+${markdown7 ? markdown7 : ""}
 
 
 `;
-    console.log("This is skill markdown ", allData.selectedSkillBadge);
     navigator.clipboard.writeText(allMarkdown);
   };
 
