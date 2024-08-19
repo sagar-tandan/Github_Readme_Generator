@@ -19,7 +19,7 @@ function App() {
           <Hero />
           <Skills />
           <Social />
-          {/* <Addons /> */}
+          <Addons />
           <Support />
           <GenerateReadme />
         </div>

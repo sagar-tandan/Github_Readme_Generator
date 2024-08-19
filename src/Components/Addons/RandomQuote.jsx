@@ -30,11 +30,11 @@ const RandomQuote = () => {
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
       <div className="w-full flex gap-3 justify-between">
-        <div className="w-[350px] flex gap-3 mt-5 items-center">
+        <div className="w-[90%] sm:w-[350px] flex gap-3 mt-5 items-center">
           <label className="text-lg">Theme : </label>
           <select
             onChange={(e) => handleThemeChange(e)}
-            className="border-none rounded-sm px-2 text-lg outline-none w-[250px]"
+            className="border-none rounded-sm px-2 text-lg outline-none w-[50%] sm:w-[250px]"
             name="quoteTheme"
             id="quoteTheme"
             value={allData.quoteTheme}
@@ -59,6 +59,7 @@ const RandomQuote = () => {
           <p className="text-red-500">Invalid github username</p>
         ) : (
           <img
+          className="object-center"
             src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme}`}
             alt="quote"
           />
