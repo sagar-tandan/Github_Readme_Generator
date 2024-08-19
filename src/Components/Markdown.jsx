@@ -542,6 +542,8 @@ ${kofi ? kofi : ""}
 
     const allMarkdown = `
 ${markdown1}
+
+${profilebadge ? profilebadge : ""}
 ${
   markdown2
     ? `
