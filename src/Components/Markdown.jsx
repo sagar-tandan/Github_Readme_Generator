@@ -517,14 +517,29 @@ ${githubStatistics}
 ${
   githubTrophy
     ? `
-🏆 GitHub Trophies
+## 🏆 GitHub Trophies
 ${githubTrophy}
   `
     : ""
 }
 `;
 
- 
+    const markdown8 = `
+${
+  RandomQuote
+    ? `
+## ✍️ Random Dev Quote  
+${RandomQuote}
+`
+    : ""
+}
+`;
+
+    const markdown9 = `
+${buymeacoffee ? buymeacoffee : ""}
+${kofi ? kofi : ""}
+`;
+
     const allMarkdown = `
 ${markdown1}
 ${
@@ -556,6 +571,15 @@ ${markdown4}
 ${markdown5 ? markdown5 : ""}
 ${markdown6 ? markdown6 : ""}
 ${markdown7 ? markdown7 : ""}
+${markdown8 ? markdown8 : ""}
+${
+  markdown9
+    ? `
+## 💰 You can help me by Donating
+${markdown9}
+  `
+    : ""
+}
 
 
 `;
