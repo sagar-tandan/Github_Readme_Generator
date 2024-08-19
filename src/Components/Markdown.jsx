@@ -33,8 +33,8 @@ const Markdowns = () => {
     allData.work.trim() !== ""
       ? `${
           allData.worklink.trim() === ""
-            ? `- ${allData.worktitle}  **${allData.work}**`
-            : `- ${allData.worktitle} [${allData.work}](${allData.worklink})`
+            ? `-${allData.worktitle}  **${allData.work.trim()}**`
+            : `-${allData.worktitle} [${allData.work}](${allData.worklink})`
         }`
       : ""
   }`;
@@ -57,8 +57,8 @@ const Markdowns = () => {
     allData.collab.trim() !== ""
       ? `${
           allData.collablink.trim() === ""
-            ? `- ${allData.collabtitle}  **${allData.collab}**`
-            : `- ${allData.collabtitle} [${allData.collab}](${allData.collablink})`
+            ? `-${allData.collabtitle}  **${allData.collab.trim()}**`
+            : `-${allData.collabtitle} [${allData.collab}](${allData.collablink})`
         }`
       : ""
   }`;
@@ -81,8 +81,8 @@ const Markdowns = () => {
     allData.help.trim() !== ""
       ? `${
           allData.helplink.trim() === ""
-            ? `- ${allData.helptitle}  **${allData.help}**`
-            : `- ${allData.helptitle} [${allData.help}](${allData.helplink})`
+            ? `-${allData.helptitle}  **${allData.help.trim()}**`
+            : `-${allData.helptitle} [${allData.help}](${allData.helplink})`
         }`
       : ""
   }`;
@@ -103,7 +103,7 @@ const Markdowns = () => {
 
   const learning = `${
     allData.learn.trim() !== ""
-      ? `-${allData.learntitle} **${allData.learn}**`
+      ? `-${allData.learntitle} **${allData.learn.trim()}**`
       : ""
   }`;
 
@@ -114,7 +114,9 @@ const Markdowns = () => {
   }`;
 
   const asking = `${
-    allData.ask.trim() !== "" ? `-${allData.asktitle} **${allData.ask}**` : ""
+    allData.ask.trim() !== ""
+      ? `-${allData.asktitle} **${allData.ask.trim()}**`
+      : ""
   }`;
 
   const askingHtml = `${
@@ -184,7 +186,9 @@ const Markdowns = () => {
   }`;
 
   const funfact = `${
-    allData.fun.trim() !== "" ? `-${allData.funtitle} **${allData.fun}**` : ""
+    allData.fun.trim() !== ""
+      ? `-${allData.funtitle} **${allData.fun.trim()}**`
+      : ""
   }`;
 
   const funHtml = `${
@@ -443,9 +447,70 @@ const Markdowns = () => {
     return match ? match[1] : null;
   }
 
+  const CopyMarkdown = (event) => {
+    event.preventDefault();
+    const markdown1 = `
+${name && name}
+
+${subtitle && subtitle}
+
+`;
+
+    const markdown2 = `
+${project1 && project1}
+
+${project2 && project2}
+
+${project3 && project3}
+
+${learning && learning}
+
+${asking && asking}
+
+${email && email}
+
+${portfolio && portfolio}
+
+${article && article}
+
+${resume && resume}
+
+${funfact && resume}
+
+`;
+
+    const allMarkdown = `
+${markdown1}
+${
+  markdown2 &&
+  `
+## 🚀 About Me
+${markdown2}
+`
+}
+`;
+
+    navigator.clipboard.writeText(allMarkdown);
+  };
+
   return (
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
       <div className="title w-full flex flex-col">
+        {/* Markdown div */}
+        <div className="w-full flex justify-between items-center max-w-screen-md mx-auto mb-10">
+          <button
+            onClick={(e) => CopyMarkdown(e)}
+            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+          >
+            COPY MARKDOWN
+          </button>
+          <button className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300">
+            DOWNLOAD MARKDOWN FILE
+          </button>
+          <button className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300">
+            CREATE NEW
+          </button>
+        </div>
         <div className="w-full flex justify-center items-center text-lg ">
           <span className="bg-black px-8 py-2 font-semibold rounded-t-md text-white">
             PREVIEW
@@ -456,8 +521,9 @@ const Markdowns = () => {
             className="text-xl font-semibold"
             dangerouslySetInnerHTML={{ __html: name }}
           />
+          {name && <hr className="border-[1px]" />}
+
           <div dangerouslySetInnerHTML={{ __html: subtitle }} />
-          <hr className="border-[1px]" />
           <img
             className="w-[200px]"
             src={convertProfileToUrl(profilebadge)}
