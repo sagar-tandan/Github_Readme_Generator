@@ -640,9 +640,9 @@ const Skills = () => {
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-1">
       <div className="title w-full flex justify-between">
         <h1 className="w-full text-2xl font-semibold">Skills</h1>
-        <div className="hidden w-[250px] border-2 border-black rounded-md flex items-center pr-2">
+        <div className="w-[150px] sm:w-[250px] border-2 border-black rounded-md flex items-center pr-2">
           <input
-            className="w-[200px] m-2 border-none outline-none text-lg "
+            className="w-[100px] sm:w-[200px] mx-[8px] sm:m-2 border-none outline-none text-md sm:text-lg "
             type="text"
             name="search"
             value={search}
@@ -652,15 +652,13 @@ const Skills = () => {
           {search === "" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="feather feather-search"
+              className="feather feather-search w-[16px] h-[16px] sm:w-[24px] sm:h-[24px]"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -677,6 +675,7 @@ const Skills = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="feather feather-search w-[16px] h-[16px] sm:w-[24px] sm:h-[24px]"
             >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -687,8 +686,8 @@ const Skills = () => {
       {/* Programming language */}
       {filteredLangs.length > 0 && (
         <div className="programming w-full flex flex-col">
-          <h1 className="w-full text-sm sm:text-xl">Programming Languages</h1>
-          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-10" />
+          <h1 className="w-full text-sm sm:text-xl mt-4 sm:mt-0">Programming Languages</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
 
           <div
             className={`w-full grid ${
@@ -735,15 +734,646 @@ const Skills = () => {
       {filteredFrontend.length > 0 && (
         <div className="programming w-full flex flex-col mt-10">
           <h1 className="w-full text-sm sm:text-xl">Frontend Development</h1>
-          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-10" />
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
 
           <div
             className={`w-full grid ${
               screenWidth < 400 ? "grid-cols-2" : ""
             } grid-cols-3 md:grid-cols-4 gap-12`}
           >
-          
             {filteredFrontend.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* Backend Development */}
+      {filteredBackend.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Backend Development</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {" "}
+            {filteredBackend.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* Mobile App Development */}
+      {filteredAndroid.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Mobile App Development</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredAndroid.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline  px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* ai Development */}
+      {filteredAi.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">AI / ML Development</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredAi.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* database */}
+      {filteredDb.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Database</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredDb.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* software */}
+      {filteredSoftware.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Software</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredSoftware.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/*Data Visualization */}
+      {filteredDv.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm  sm:text-xl">Data Visualization</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredDv.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* DevOps */}
+      {filteredDevops.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">DevOps</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredDevops.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* baas */}
+      {filteredBaas.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">
+            Backend as a Service(BaaS)
+          </h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredBaas.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* framework */}
+      {filteredFramework.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Frameworks</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredFramework.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* testing */}
+      {filteredTest.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Testing</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredTest.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* staticSite */}
+      {filteredStatic.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Static Site Generators</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredStatic.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* gameEngine */}
+      {filteredGame.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Game Engine</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredGame.map((skill, index) => (
+              <div
+                key={index}
+                className="w-full flex gap-5 items-center oneelement"
+              >
+                <div
+                  onClick={() => handleClick(skill.title)}
+                  className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+                >
+                  <div
+                    className={`w-full ${
+                      selectedSkills.includes(skill.title)
+                        ? "bg-purple-600 rounded-sm"
+                        : "bg-white"
+                    }`}
+                  ></div>
+                </div>
+                <img
+                  onClick={() => handleClick(skill.title)}
+                  onMouseEnter={() => setShowText(skill.title)}
+                  onMouseLeave={() => setShowText("")}
+                  className="w-10 h-10"
+                  src={skill.img}
+                  alt={skill.title}
+                />
+                <h1
+                  className={`hidden xl:inline px-4 py-1 bg-black text-white transform transition-opacity duration-500 ${
+                    showText === skill.title ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {skill.title}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* others */}
+      {filteredOther.length > 0 && (
+        <div className="programming w-full flex flex-col mt-10">
+          <h1 className="w-full text-sm sm:text-xl">Other</h1>
+          <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
+
+          <div
+            className={`w-full grid ${
+              screenWidth < 400 ? "grid-cols-2" : ""
+            } grid-cols-3 md:grid-cols-4 gap-12`}
+          >
+            {filteredOther.map((skill, index) => (
               <div
                 key={index}
                 className="w-full flex gap-5 items-center oneelement"
