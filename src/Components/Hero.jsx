@@ -18,16 +18,16 @@ const Hero = () => {
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
       <div className="title w-full flex flex-col gap-3">
         <h1 className="w-full text-2xl font-semibold">Title</h1>
-        <div className="w-full flex gap-10">
+        <div className="w-full flex  flex-col sm:flex-row gap-5 sm:gap-10 ">
           <input
-            className="w-[250px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="Nametitle"
             value={allData.Nametitle}
             onChange={handleChange}
           />
           <input
-            className="w-[400px] outline-none border-b-2 border-[#d3d3d3] text-xl"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="Name"
             value={allData.Name}
@@ -40,7 +40,7 @@ const Hero = () => {
         <h1 className="w-full text-2xl font-semibold">Subtitle</h1>
         <div className="w-full flex gap-10">
           <input
-            className="w-[680px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[70%] lg:w-[50%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="subtitle"
             value={allData.subtitle}
@@ -51,9 +51,9 @@ const Hero = () => {
 
       <div className="title w-full flex flex-col gap-3">
         <h1 className="w-full text-2xl font-semibold">Work</h1>
-        <div className="w-full flex gap-10">
+        <div className="w-full flex  flex-col sm:flex-row gap-5 sm:gap-10 mt-4">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="worktitle"
             value={allData.worktitle}
@@ -61,7 +61,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="work"
             value={allData.work}
@@ -69,7 +69,7 @@ const Hero = () => {
             placeholder="project name"
           />
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="worklink"
             value={allData.worklink}
@@ -78,9 +78,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="collabtitle"
             value={allData.collabtitle}
@@ -88,7 +88,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="collab"
             value={allData.collab}
@@ -96,7 +96,7 @@ const Hero = () => {
             placeholder="project name"
           />
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="collablink"
             value={allData.collablink}
@@ -105,9 +105,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="helptitle"
             value={allData.helptitle}
@@ -115,7 +115,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="help"
             value={allData.help}
@@ -123,7 +123,7 @@ const Hero = () => {
             placeholder="project name"
           />
           <input
-            className="w-[350px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[25%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="helplink"
             value={allData.helplink}
@@ -132,9 +132,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="learntitle"
             value={allData.learntitle}
@@ -142,7 +142,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="learn"
             value={allData.learn}
@@ -151,9 +151,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="asktitle"
             value={allData.asktitle}
@@ -161,7 +161,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="ask"
             value={allData.ask}
@@ -170,9 +170,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="emailtitle"
             value={allData.emailtitle}
@@ -180,7 +180,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="email"
             value={allData.email}
@@ -189,9 +189,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="projecttitle"
             value={allData.projecttitle}
@@ -199,7 +199,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="project"
             value={allData.project}
@@ -208,9 +208,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="articletitle"
             value={allData.articletitle}
@@ -218,7 +218,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="article"
             value={allData.article}
@@ -227,9 +227,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="exptitle"
             value={allData.exptitle}
@@ -237,7 +237,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="exp"
             value={allData.exp}
@@ -246,9 +246,9 @@ const Hero = () => {
           />
         </div>
 
-        <div className="w-full flex gap-10 mt-6">
+        <div className="w-full flex flex-col sm:flex-row gap-5 sm:gap-10 mt-12 sm:mt-6">
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="funtitle"
             value={allData.funtitle}
@@ -256,7 +256,7 @@ const Hero = () => {
           />
 
           <input
-            className="w-[450px] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
+            className="w-full sm:w-[50%] lg:w-[40%] xl:w-[35%] outline-none border-b-2 border-[#d3d3d3] text-xl p-1"
             type="text"
             name="fun"
             value={allData.fun}
