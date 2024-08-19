@@ -36,10 +36,10 @@ const Contribution = () => {
 
   return (
     <div className="mt-10 w-full flex flex-col">
-      <div className="w-full flex gap-3">
-        <div
+      <div className="w-full flex gap-3 items-center">
+      <div
           onClick={handleClick}
-          className="checkbox border-2 rounded-sm w-6 h-6 border-black bg-white flex p-1 cursor-pointer"
+          className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
           <div
             className={`w-full ${
@@ -47,7 +47,7 @@ const Contribution = () => {
             }`}
           ></div>
         </div>
-        <span className="text-xl">Contribution Graph</span>
+        <span className="text-lg sm:text-xl">Contribution Graph</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
       <div className="w-full md:flex gap-3 md:justify-between mt-5 grid grid-cols-2 text-sm sm:text-md">

@@ -15,10 +15,10 @@ const RandomQuote = () => {
 
   return (
     <div className="mt-10 w-full flex flex-col">
-      <div className="w-full flex gap-3">
+      <div className="w-full flex gap-3 items-center">
         <div
           onClick={() => handleClick()}
-          className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+          className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
           <div
             className={`w-full ${
@@ -26,7 +26,7 @@ const RandomQuote = () => {
             }`}
           ></div>
         </div>
-        <span className=" text-xl">Random Quote</span>
+        <span className="text-lg sm:text-xl">Random Quote</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
       <div className="w-full flex gap-3 justify-between">
@@ -59,7 +59,7 @@ const RandomQuote = () => {
           <p className="text-red-500">Invalid github username</p>
         ) : (
           <img
-          className="object-center"
+            className="object-center"
             src={`https://quotes-github-readme.vercel.app/api?type=horizontal&theme=${allData.quoteTheme}`}
             alt="quote"
           />
