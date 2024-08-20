@@ -13,11 +13,11 @@ const Addons = () => {
         <p className="text-red-500 text-sm mb-3">
           please wait for images to load after changing any values
         </p>
-        <DisplayVisitor />
+        {/* <DisplayVisitor />
         <DisplayTrophy />
-        <RandomQuote />
+        <RandomQuote /> */}
         <DisplayGithubStats />
-        <Contribution />
+        {/* <Contribution /> */}
       </div>
     </div>
   );

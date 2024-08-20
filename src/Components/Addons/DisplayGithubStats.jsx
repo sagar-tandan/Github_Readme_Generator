@@ -160,18 +160,16 @@ const DisplayGithubStats = () => {
           <p className="text-red-500">Invalid github username</p>
         </div>
       ) : (
-        <div className="flex gap-2 sm:gap-5 xl:gap-2 mt-8 w-full items-center flex-wrap">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:flex gap-4 mt-4 lg:mt-6 xl:gap-1 xl:flex-wrap xl:justify-center">
           <img
-            // className="w-full"
-            className="w-full sm:w-[48%] md:w-[48.5%] xl:w-[480px]"
+            className="w-full h-auto max-h-[250px] object-contain xl:w-[480px]"
             src={`https://github-readme-streak-stats.herokuapp.com/?user=${
               allData.github
             }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}`}
             alt="streak"
           />
           <img
-            // className="w-full"
-            className="w-full sm:w-[48%] md:w-[48.5%] xl:w-[380px]"
+            className="w-full h-auto max-h-[250px] sm:w-[90%] object-contain xl:w-[430px]"
             src={`https://github-readme-stats.vercel.app/api?username=${
               allData.github
             }&theme=${
@@ -180,8 +178,7 @@ const DisplayGithubStats = () => {
             alt="stats"
           />
           <img
-            // className="w-full"
-            className="w-full sm:w-[35%] lg:w-[280px]"
+            className="w-full h-auto max-h-[250px] object-contain xl:w-[340px]"
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
               allData.github
             }&theme=${
@@ -192,6 +189,9 @@ const DisplayGithubStats = () => {
             alt="lang"
           />
         </div>
+
+
+
       )}
     </div>
   );
