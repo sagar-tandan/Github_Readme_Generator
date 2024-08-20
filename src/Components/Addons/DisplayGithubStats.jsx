@@ -93,11 +93,11 @@ const DisplayGithubStats = () => {
   };
 
   return (
-    <div className="mt-10 w-full flex flex-col">
+    <div className="mt-3 sm:mt-10 w-full flex flex-col">
       <div className="w-full flex gap-3">
         <div
           onClick={() => handleClick()}
-          className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+          className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
           <div
             className={`w-full ${
@@ -105,15 +105,15 @@ const DisplayGithubStats = () => {
             }`}
           ></div>
         </div>
-        <span className=" text-xl">Github Statistics</span>
+        <span className="text-lg sm:text-xl">Github Statistics</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex gap-3 justify-between">
-        <div className="w-[350px] flex gap-3 mt-5 items-center">
+      <div className="w-full flex gap-3 justify-between xl:flex-row flex-col">
+        <div className="w-[250px] sm:w-[350px] flex gap-3 mt-5 items-center">
           <label className="text-lg">Theme : </label>
           <select
             onChange={(e) => handleThemeChange(e)}
-            className="border-none rounded-sm px-2 text-lg outline-none w-[250px]"
+            className="border-none rounded-sm px-2 text-lg outline-none w-[140px] sm:w-[250px]"
             name="statTheme"
             id="statTheme"
             value={allData.statTheme}
@@ -125,10 +125,10 @@ const DisplayGithubStats = () => {
             ))}
           </select>
         </div>
-        <div className="flex gap-10">
+        <div className="flex lg:gap-10 gap-2 flex-wrap xl:mt-5 ">
           <button
             onClick={(e) => handleBorder(e)}
-            className={`w-[200px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-full sm:w-[220px] px-5 py-1 border-2 border-black rounded-sm text-sm sm:text-md ${
               allData.statBorder ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -137,7 +137,7 @@ const DisplayGithubStats = () => {
 
           <button
             onClick={(e) => handleLifeTimeCommits(e)}
-            className={`w-[220px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-full sm:w-[220px] px-5 py-1 border-2 border-black rounded-sm text-sm sm:text-md ${
               allData.statLifeTimeCommit ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -146,7 +146,7 @@ const DisplayGithubStats = () => {
 
           <button
             onClick={(e) => handlePrivateCommits(e)}
-            className={`w-[220px] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-full sm:w-[220px] px-5 py-1 border-2 border-black rounded-sm  text-sm sm:text-md ${
               allData.statPrivateCommit ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -160,10 +160,10 @@ const DisplayGithubStats = () => {
           <p className="text-red-500">Invalid github username</p>
         </div>
       ) : (
-        <div className="flex gap-5 mt-8 w-full items-center">
+        <div className="flex gap-2 sm:gap-5 xl:gap-2 mt-8 w-full items-center flex-wrap">
           <img
             // className="w-full"
-            className="w-[550px]"
+            className="w-full sm:w-[48%] md:w-[48.5%] xl:w-[480px]"
             src={`https://github-readme-streak-stats.herokuapp.com/?user=${
               allData.github
             }&theme=${allData.statTheme}&hide_border=${!allData.statBorder}`}
@@ -171,7 +171,7 @@ const DisplayGithubStats = () => {
           />
           <img
             // className="w-full"
-            className="w-[500px]"
+            className="w-full sm:w-[48%] md:w-[48.5%] xl:w-[380px]"
             src={`https://github-readme-stats.vercel.app/api?username=${
               allData.github
             }&theme=${
@@ -181,7 +181,7 @@ const DisplayGithubStats = () => {
           />
           <img
             // className="w-full"
-            className="w-[400px]"
+            className="w-full sm:w-[35%] lg:w-[280px]"
             src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${
               allData.github
             }&theme=${

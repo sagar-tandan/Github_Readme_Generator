@@ -27,7 +27,7 @@ const DisplayVisitor = () => {
       <div className="w-full flex gap-3">
         <div
           onClick={() => handleClick()}
-          className={`checkbox border-[2px] rounded-sm w-6 h-6 border-black bg-white flex p-1`}
+          className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
           <div
             className={`w-full ${
@@ -35,14 +35,14 @@ const DisplayVisitor = () => {
             }`}
           ></div>
         </div>
-        <span className=" text-xl">Visitor Count Badge</span>
+        <span className="text-lg sm:text-xl">Visitor Count Badge</span>
       </div>
       <hr className="w-full mt-1 border-[1px] border-[#d3d3d3]" />
-      <div className="w-full flex md:flex-row flex-col gap-3 mt-3 ">
-        <div className="w-full md:w-[50%] flex gap-3">
-          <div className="w-[50%] mt-5">
+      <div className="w-full flex lg:flex-row flex-col gap-3 mt-3 ">
+        <div className="w-full flex gap-3 sm:flex-row flex-col">
+          <div className="w-[100%] xl:w-[60%] mt-2 sm:mt-5">
             <input
-              className="md:w-[90%] xl:w-[60%] outline-none text-lg border-b-2 border-[#d3d3d3] p-1 "
+              className="w-full sm:w-[90%] xl:w-[90%] outline-none text-lg border-b-2 border-[#d3d3d3] p-1 "
               type="text"
               name="visitorLabel"
               value={allData.visitorLabel}
@@ -51,11 +51,11 @@ const DisplayVisitor = () => {
             />
           </div>
 
-          <div className="md:w-[70%] lg:w-[60%] xl:w-[50%] flex gap-3 mt-5 items-center">
+          <div className="w-full lg:w-[60%] xl:w-[50%] flex gap-3 mt-2 sm:mt-5 items-center">
             <label className="text-lg">Color : </label>
             <select
               onChange={(e) => handleColorChange(e)}
-              className="border-none rounded-sm px-2 text-lg outline-none w-[50%]"
+              className="border-none rounded-sm px-2 text-lg outline-none sm:w-[50%] w-[60%]"
               name="visitorColor"
               id="visitorColor"
             >
@@ -81,12 +81,12 @@ const DisplayVisitor = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-[50%] flex gap-3">
-          <div className="w-full md:w-[80%] lg:w-[60%] xl:w-[50%] flex gap-3 mt-5 items-center">
+        <div className="w-full flex gap-3 sm:flex-row flex-col">
+          <div className="w-full lg:w-[60%] xl:w-[50%] flex gap-3 mt-2 sm:mt-5 items-center">
             <label className="text-lg">Icon :</label>
             <select
               onChange={(e) => handleIconChange(e)}
-              className="border-none rounded-sm px-2 text-lg outline-none w-[50%]"
+              className="border-none rounded-sm px-2 text-lg outline-none sm:w-[50%] w-[60%]"
               name="visitorIcon"
               id="visitorIcon"
             >
@@ -106,12 +106,14 @@ const DisplayVisitor = () => {
               ))}
             </select>
           </div>
-          <div className="flex gap-3 mt-5 w-[70%] items-center">
+          <div className="flex gap-3 mt-2 sm:mt-5 w-[85%] items-center">
             {allData.github.trim() === "" ? (
-              <p className="text-red-500 text-sm xl:text-lg">Invalid github username</p>
+              <p className="text-red-500 text-sm xl:text-lg">
+                Invalid github username
+              </p>
             ) : (
               <img
-                className="w-[90%] h-[40px]"
+                className="w-[80%] h-[40px]"
                 src={`https://visitcount.itsvg.in/api?id=${
                   allData.github
                 }&label=${encodeURIComponent(allData.visitorLabel)}&color=${

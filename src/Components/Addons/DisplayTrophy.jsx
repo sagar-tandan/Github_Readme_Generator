@@ -27,9 +27,9 @@ const DisplayTrophy = () => {
   };
 
   return (
-    <div className="sm:mt-10 w-full flex flex-col">
+    <div className="mt-3 sm:mt-10 w-full flex flex-col">
       <div className="w-full flex gap-3 items-center">
-      <div
+        <div
           onClick={() => handleClick()}
           className="checkbox border-2 rounded-sm w-5 h-5 sm:w-6 sm:h-6 border-black bg-white flex p-[2px] sm:p-1 cursor-pointer"
         >
@@ -62,14 +62,16 @@ const DisplayTrophy = () => {
               "monokai",
               "algolia",
             ].map((color, index) => (
-              <option className="bg-indigo-50" value={color}>{color}</option>
+              <option className="bg-indigo-50" value={color}>
+                {color}
+              </option>
             ))}
           </select>
         </div>
-        <div className="w-full flex gap-10 justify-between sm:justify-end px-2 text-sm sm:text-md">
+        <div className="w-full flex sm:gap-10 sm:flex-row flex-col sm:justify-end px-2 text-sm sm:text-md">
           <button
             onClick={(e) => handleBorder(e)}
-            className={`w-[40%] sm:w-[50%] xl:w-[40%] px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={`w-full sm:w-[50%] xl:w-[40%] px-5 mt-2 sm:mt-5 py-1 border-2 border-black rounded-sm ${
               allData.trophyBorder ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >
@@ -78,7 +80,7 @@ const DisplayTrophy = () => {
 
           <button
             onClick={(e) => handlebackground(e)}
-            className={` w-[42%] sm:w-[50%] xl:w-[40%] px-1 sm:px-5 mt-5 py-1 border-2 border-black rounded-sm ${
+            className={` w-full sm:w-[50%] xl:w-[40%] px-1 sm:px-5 mt-2 sm:mt-5 py-1 border-2 border-black rounded-sm ${
               allData.trophyBackground ? "bg-black text-white" : ""
             } active:scale-90 transition-all duration-300 ease-in-out`}
           >

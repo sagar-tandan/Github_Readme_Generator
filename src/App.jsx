@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="w-full flex flex-col p-6 md:p-10 lg:p-16 font-Poppins tracking-widest mx-auto">
       {!allData.displayOutput ? (
-        <div className="w-full flex flex-col gap-[70px] mx-auto">
+        <div className="w-full flex flex-col gap-[35px] sm:gap-[70px] mx-auto">
           <Hero />
           <Skills />
           <Social />
@@ -24,7 +24,7 @@ function App() {
           <GenerateReadme />
         </div>
       ) : (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col gap-[35px] sm:gap-[70px]">
           <Markdowns />
           <GenerateReadme />
         </div>

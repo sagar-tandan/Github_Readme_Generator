@@ -527,6 +527,7 @@ const Skills = () => {
   const [filteredOther, setFilteredOther] = useState(other);
 
   const [screenWidth, setScreenWidth] = useState("");
+
   useEffect(() => {
     // Define the callback function for the resize event
     const handleResize = () => {
@@ -540,7 +541,9 @@ const Skills = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [screenWidth]);
+
+  console.log(screenWidth);
 
   const noResultsFound =
     filteredAi.length === 0 &&
@@ -686,13 +689,15 @@ const Skills = () => {
       {/* Programming language */}
       {filteredLangs.length > 0 && (
         <div className="programming w-full flex flex-col">
-          <h1 className="w-full text-sm sm:text-xl mt-4 sm:mt-0">Programming Languages</h1>
+          <h1 className="w-full text-sm sm:text-xl mt-4 sm:mt-0">
+            Programming Languages
+          </h1>
           <hr className="w-full mt-1 border-[1px] border-[#d3d3d3] mb-5" />
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredLangs.map((skill, index) => (
               <div
@@ -738,8 +743,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredFrontend.map((skill, index) => (
               <div
@@ -786,10 +791,9 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
-            {" "}
             {filteredBackend.map((skill, index) => (
               <div
                 key={index}
@@ -835,8 +839,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredAndroid.map((skill, index) => (
               <div
@@ -883,8 +887,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredAi.map((skill, index) => (
               <div
@@ -932,8 +936,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredDb.map((skill, index) => (
               <div
@@ -981,8 +985,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredSoftware.map((skill, index) => (
               <div
@@ -1029,8 +1033,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredDv.map((skill, index) => (
               <div
@@ -1077,8 +1081,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredDevops.map((skill, index) => (
               <div
@@ -1127,8 +1131,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredBaas.map((skill, index) => (
               <div
@@ -1175,8 +1179,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredFramework.map((skill, index) => (
               <div
@@ -1224,8 +1228,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredTest.map((skill, index) => (
               <div
@@ -1273,8 +1277,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredStatic.map((skill, index) => (
               <div
@@ -1322,8 +1326,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredGame.map((skill, index) => (
               <div
@@ -1370,8 +1374,8 @@ const Skills = () => {
 
           <div
             className={`w-full grid ${
-              screenWidth < 400 ? "grid-cols-2" : ""
-            } grid-cols-3 md:grid-cols-4 gap-12`}
+              screenWidth < 400 ? "grid-cols-2" : "grid-cols-3"
+            }  md:grid-cols-4 gap-12`}
           >
             {filteredOther.map((skill, index) => (
               <div
