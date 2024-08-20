@@ -591,10 +591,12 @@ ${streak}
   //COPY MARKDOWN FUNCTIONALITY
   const CopyMarkdown = (event) => {
     event.preventDefault();
-    setToast(true);
+    // setToast(true);
+    setAllData((prev) => ({ ...prev, showToast: true }));
     setTimeout(() => {
-      setToast(false);
+      setAllData((prev) => ({ ...prev, showToast: false }));
     }, 1000);
+    console.log(allData.showToast);
     // console.log(allMarkdown);
     const allMarkdownn = generateMarkDown();
     navigator.clipboard.writeText(allMarkdownn);
@@ -634,7 +636,7 @@ ${streak}
       {/* Toast */}
       <div
         className={`absolute w-[260px] z-50 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
-          showToast ? "translate-x-[-50px] opacity-100" : "opacity-60"
+          allData.showToast ? "translate-x-[-50px] opacity-100" : "opacity-60"
         } transition-all duration-300 `}
       >
         <img className="w-8 h-8" src={right} alt="" />

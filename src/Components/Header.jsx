@@ -5,10 +5,10 @@ const Header = () => {
   return (
     <div className="w-full flex py-4 fixed bg-white px-4 sm:px-8 md:px-10 lg:px-16 z-40">
       <div className="w-full max-w-screen-2xl flex justify-between mx-auto">
-        <div className="w-full flex gap-2 items-center">
+        <a href="/" className="w-full flex gap-2 items-center">
           <img className="w-6 h-6 sm:w-12 sm:h-12" src={logo} alt="" />
           <h1 className="sm:text-3xl font-bold text-[#691a99] text-md ">GRMG</h1>
-        </div>
+        </a>
         <a
           href="https://buymeacoffee.com/sagartandan_"
           target="_blank"

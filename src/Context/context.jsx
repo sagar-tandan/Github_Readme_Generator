@@ -93,6 +93,8 @@ const ContextProvider = ({ children }) => {
 
     //selectedSkillBadgeLink
     selectedSkillBadge: "",
+    //showToast
+    showToast: false,
   });
 
   console.log(allData);
