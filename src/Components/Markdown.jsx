@@ -633,8 +633,8 @@ ${streak}
     <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12 ">
       {/* Toast */}
       <div
-        className={`absolute w-[260px] z-10 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
-          showToast ? "translate-x-[-20px] opacity-100" : "opacity-60"
+        className={`absolute w-[260px] z-50 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
+          showToast ? "translate-x-[-50px] opacity-100" : "opacity-60"
         } transition-all duration-300 `}
       >
         <img className="w-8 h-8" src={right} alt="" />
