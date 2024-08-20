@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AllContext } from "../Context/context";
 import SkillsBadges from "./SkillBadge.jsx";
+import right from "../assets/checkmark.png";
 
 const Markdowns = () => {
   const { allData, setAllData } = useContext(AllContext);
   const [allSkill, setAllSkill] = useState(SkillsBadges);
   const [selectedSkill, setSelectedSkill] = useState([]);
+  const [showToast, setToast] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -589,6 +591,10 @@ ${streak}
   //COPY MARKDOWN FUNCTIONALITY
   const CopyMarkdown = (event) => {
     event.preventDefault();
+    setToast(true);
+    setTimeout(() => {
+      setToast(false);
+    }, 1000);
     // console.log(allMarkdown);
     const allMarkdownn = generateMarkDown();
     navigator.clipboard.writeText(allMarkdownn);
@@ -624,27 +630,56 @@ ${streak}
   };
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12">
+    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12 ">
+      {/* Toast */}
+      <div
+        className={`absolute w-[260px] z-10 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
+          showToast ? "translate-x-[-20px] opacity-100" : "opacity-60"
+        } transition-all duration-300 `}
+      >
+        <img className="w-8 h-8" src={right} alt="" />
+        <h1>Copied Successfully!</h1>
+      </div>
       <div className="title w-full flex flex-col">
         {/* Markdown div */}
         <div className="w-full flex justify-between items-center max-w-screen-md mx-auto mb-10">
           <button
             onClick={(e) => CopyMarkdown(e)}
-            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+            className="md:px-4 md:py-2 md:border-[2px] md:font-semibold font-light px-2 py-1 border-[1px] flex gap-1 items-center text-sm border-black rounded-sm active:scale-95 transition-all duration-300 "
           >
-            COPY MARKDOWN
+            <h1 className="hidden sm:inline">COPY MARKDOWN</h1>
+
+            <img
+              className="w-4 h-4 sm:hidden"
+              src="https://cdn-icons-png.flaticon.com/128/6642/6642181.png"
+              alt=""
+            />
+            <h1 className="sm:hidden font-medium">Copy</h1>
           </button>
           <button
             onClick={(e) => downLoadMarkdown(e)}
-            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+            className="md:px-4 md:py-2 md:border-[2px] md:font-semibold font-light flex items-center gap-1 px-2 py-1 border-[1px] text-sm border-black rounded-sm active:scale-95 transition-all duration-300 "
           >
-            DOWNLOAD MARKDOWN FILE
+            <h1 className="hidden sm:inline"> DOWNLOAD MARKDOWN FILE</h1>
+            <img
+              className="w-4 h-4 sm:hidden"
+              src="https://cdn-icons-png.flaticon.com/128/7532/7532231.png"
+              alt=""
+            />
+            <h1 className="sm:hidden font-medium">Download</h1>
           </button>
           <button
             onClick={(e) => CreateNewReadme(e)}
-            className="px-4 py-2 border-[2px] font-semibold border-black rounded-sm active:scale-95 transition-all duration-300"
+            className="md:px-4 md:py-2 md:border-[2px] md:font-semibold flex gap-1 items-center font-light px-2 py-1 border-[1px] text-sm border-black rounded-sm active:scale-95 transition-all duration-300 "
           >
-            CREATE NEW
+            <h1 className="hidden sm:inline"> CREATE NEW</h1>
+
+            <img
+              className="w-4 h-4 sm:hidden"
+              src="https://cdn-icons-png.flaticon.com/128/9264/9264047.png"
+              alt=""
+            />
+            <h1 className="sm:hidden font-medium">Create</h1>
           </button>
         </div>
         <div className="w-full flex justify-center items-center text-lg ">
