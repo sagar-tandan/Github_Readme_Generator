@@ -593,9 +593,6 @@ ${streak}
     event.preventDefault();
     // setToast(true);
     setAllData((prev) => ({ ...prev, showToast: true }));
-    setTimeout(() => {
-      setAllData((prev) => ({ ...prev, showToast: false }));
-    }, 800);
     console.log(allData.showToast);
     // console.log(allMarkdown);
     const allMarkdownn = generateMarkDown();
@@ -632,31 +629,37 @@ ${streak}
   };
 
   return (
-    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12 relative">
-      {/* Toast */}
-      <div
-        className={`absolute w-[260px] z-50 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
+    <div className="w-full max-w-screen-2xl mx-auto flex flex-col gap-12 ">
+      {/* Toast didnt work*/}
+      {/* <div
+        className={`absolute w-[260px] z-50 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0 bottom-0 ${
           allData.showToast ? "translate-x-[-50px] opacity-100" : "opacity-60"
         } transition-all`}
       >
         <img className="w-8 h-8" src={right} alt="" />
         <h1>Copied Successfully!</h1>
-      </div>
+      </div> */}
       <div className="title w-full flex flex-col">
         {/* Markdown div */}
         <div className="w-full flex justify-between items-center max-w-screen-md mx-auto mb-10">
           <button
             onClick={(e) => CopyMarkdown(e)}
-            className="md:px-4 md:py-2 md:border-[2px] md:font-semibold font-light px-2 py-1 border-[1px] flex gap-1 items-center text-sm border-black rounded-sm active:scale-95 transition-all duration-300 "
+            className={`disabled:bg-gray-400 disabled:cursor-not-allowed md:px-4 md:py-2 md:border-[2px] md:font-semibold font-light px-2 py-1 border-[1px] flex gap-1 items-center text-sm border-black rounded-sm active:scale-95 transition-all duration-300 `}
           >
-            <h1 className="hidden sm:inline">COPY MARKDOWN</h1>
+            <h1 className="hidden sm:inline">
+              {allData.showToast ? "MARKDOWN COPIED" : "COPY MARKDOWN"}
+            </h1>
 
             <img
-              className="w-4 h-4 sm:hidden"
+              className={`w-4 h-4 sm:hidden ${
+                allData.showToast ? "hidden" : "inline"
+              }`}
               src="https://cdn-icons-png.flaticon.com/128/6642/6642181.png"
               alt=""
             />
-            <h1 className="sm:hidden font-medium">Copy</h1>
+            <h1 className="sm:hidden font-medium">
+              {allData.showToast ? "copied" : "Copy"}
+            </h1>
           </button>
           <button
             onClick={(e) => downLoadMarkdown(e)}
