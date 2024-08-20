@@ -595,7 +595,7 @@ ${streak}
     setAllData((prev) => ({ ...prev, showToast: true }));
     setTimeout(() => {
       setAllData((prev) => ({ ...prev, showToast: false }));
-    }, 1000);
+    }, 2000);
     console.log(allData.showToast);
     // console.log(allMarkdown);
     const allMarkdownn = generateMarkDown();
