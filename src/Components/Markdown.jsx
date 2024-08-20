@@ -595,7 +595,7 @@ ${streak}
     setAllData((prev) => ({ ...prev, showToast: true }));
     setTimeout(() => {
       setAllData((prev) => ({ ...prev, showToast: false }));
-    }, 2000);
+    }, 800);
     console.log(allData.showToast);
     // console.log(allMarkdown);
     const allMarkdownn = generateMarkDown();
@@ -637,7 +637,7 @@ ${streak}
       <div
         className={`absolute w-[260px] z-50 h-[50px] bg-green-500 text-white flex gap-2 items-center px-2 rounded-md translate-x-[350px] right-0  ${
           allData.showToast ? "translate-x-[-50px] opacity-100" : "opacity-60"
-        } transition-all duration-300 `}
+        } transition-all`}
       >
         <img className="w-8 h-8" src={right} alt="" />
         <h1>Copied Successfully!</h1>
