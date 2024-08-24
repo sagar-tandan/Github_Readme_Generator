@@ -29,7 +29,7 @@ const ContextProvider = ({ children }) => {
     exptitle: "📄 Know about my experiences",
     exp: "",
     funtitle: "⚡ Fun fact",
-    fun: "",
+    fun: "neurons that fire together, wire together",
 
     //skill
     programming: "",
